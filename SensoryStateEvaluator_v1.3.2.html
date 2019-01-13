@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Index</title>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" charset="utf-8">
+	<link rel="stylesheet" href="css/jquery.ui.all.css">
+	<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+	<script src="js/jquery-1.9.1.js"></script>
+    <script src="js/jquery.ui.core.js"></script>
+    <script src="js/jquery.ui.widget.js"></script>
+    
+	<script src="js/jquery.ui.accordion.js"></script>
+	
+	<script src="js/jquery.ui.button.js"></script>
+	
+	<script src="js/jquery.ui.mouse.js"></script>
+	<script src="js/jquery.ui.draggable.js"></script>
+	<script src="js/jquery.ui.position.js"></script>
+	<script src="js/jquery.ui.resizable.js"></script>
+	<script src="js/jquery.ui.dialog.js"></script>
+	<script src="js/jquery.ui.effect.js"></script>
+	<script src="js/jquery.ui.effect-blind.js"></script>
+	<script src="js/jquery.ui.effect-explode.js"></script>
+	<script src="js/jquery.ui.tooltip.js"></script>
+	
+    <script class="include" type="text/javascript" src="js/jqplot/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="js/jqplot/shCore.min.js"></script>
+    <script type="text/javascript" src="js/jqplot/shBrushJScript.min.js"></script>
+    <script type="text/javascript" src="js/jqplot/shBrushXml.min.js"></script>
+
+
+    <script language="javascript" type="text/javascript" src="js/jqplot/jqplot.categoryAxisRenderer.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jqplot/jqplot.barRenderer.min.js"></script>
+	<script language="javascript" type="text/javascript" src="js/jqplot/jqplot.pieRenderer.min.js"></script>
+		  
+	<style> <!-- These are meant for the tooltips on 'title' for the accordion headings -->
+	label {
+		display: inline-block; width: 1em;
+	}
+	fieldset div {
+		margin-bottom: 2em;
+	}
+	fieldset .help {
+		display: inline-block;
+	}
+	.ui-tooltip {
+		max-width: 940px;
+	}
+	.ui-dialog-titlebar {
+		background-color: #FF0000;
+		background-image: none;
+		color: #000;
+		fontFamily: 'Tahoma';
+		fontSize: '9pt';
+	}
+	#header {
+		background: url("topwave.jpg") no-repeat scroll 0px 0px;
+		height: 130px;
+		width : 960px; 
+		border: 2px solid #FC7E04;
+		border-radius:8px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#body {
+		width : 960px; 
+		border: 2px solid #FC7E04;
+		border-radius:8px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		fontFamily: 'Tahoma';
+		fontSize: '12pt';
+	}
+	#heading{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+	#buttonPanel{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top:5px;
+		margin-bottom:5px;	
+		text-align: center;
+	}
+	#logo{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: right;
+	}
+	
+	#name {
+			border: 2px solid #FC7E04;
+			border-radius:4px;
+	}
+	#evaluate  {
+			width : 100px;
+			border: 1px solid #FC7E04;
+			border-radius:4px;
+	}
+	#print{
+			width : 100px;
+			border: 1px solid #FC7E04;
+			border-radius:4px;
+	} 
+	#clear{
+			width : 100px;
+			border: 1px solid #FC7E04;
+			border-radius:4px;
+	}
+	#redzone{
+		display: block;
+		margin-left: 0px;
+		margin-right: 0px;
+		background-color: #FF0000;
+		color: #000;
+		border: 1px solid #111111;
+		border-radius:4px;
+		text-align:center;
+	}
+	#greyzone{
+		display: block;
+		margin-left: 0px;
+		margin-right: 0px;
+		background-color: #888888;
+		color: #000;
+		border: 1px solid #111111;
+		border-radius:4px;
+		text-align:center;
+	}
+	#whitezone{
+		display: block;
+		margin-left: 0px;
+		margin-right: 0px;
+		background-color: #EFEFEF;
+		color: #000;
+		border: 1px solid #111111;
+		border-radius:4px;
+		text-align:center;
+	}
+	#orangenote{
+		width : 100px;
+		font-size: 10px; 
+		display: block;
+		margin-left: 0px;
+		margin-right: 0px;
+		background-color: #FC7E04;
+		color: #000;
+		border: 1px solid #111111;
+		border-radius:4px;
+		text-align:center;
+	}
+	</style>
+	<style>
+		.red_box {
+			outline: solid 2px #FF0000;
+			margin-right: 2px;
+			float: left;
+			margin-left: -22px;
+			}
+		.grey_box {
+			outline: solid 2px #888888;
+			margin-right: 2px;
+		    float: left;
+			margin-left: -22px;			
+			}
+		.white_box {
+			outline: solid 2px #EFEFEF;
+			margin-right: 2px;
+		    float: left;
+			margin-left: -22px;
+			}
+	</style>
+   <script>
+   var red=0;
+   var white=0;
+   var grey=0;
+   
+   var reds = [];
+   var whites= [];
+   var greys=[];
+   
+   
+   
+   	$(function() {
+			var tooltips = $( "[title]" ).tooltip( {show: {effect: "slideDown", delay: 1600}});
+		});
+	$(function() {
+		$( "#accordion" ).accordion({
+			heightStyle: "content"
+		});
+		
+		var dialogOptions={
+			maxWidth:800,
+            maxHeight: 120,
+            width: 800,
+            height: 120,
+			autoOpen: false,
+			show: {
+				effect: "blind",
+				duration: 1000
+			},
+			hide: {
+				effect: "explode",
+				duration: 1000
+			}
+		};
+
+		$("#dialog").dialog(dialogOptions);
+		
+		$("#red").dialog(dialogOptions);
+		$("#white").dialog(dialogOptions);
+		$("#grey").dialog(dialogOptions);
+
+		
+		
+		var line1 = [['Red', red],['Grey', grey],['White', white]];
+
+		var chartOptions ={
+				title:'',
+				seriesColors: [ "#ff0000", "#888888", "#EFEFEF"],
+				seriesDefaults:{
+					pointLabels: { show: true },
+					renderer:$.jqplot.BarRenderer,
+					rendererOptions: {varyBarColor: true, showDataLabels: true}
+				},
+				grid : {drawGridLines: true, background: '#FFFFDD',gridLineColor : '#DDDDDD'},
+				axes:{
+					xaxis:{	renderer: $.jqplot.CategoryAxisRenderer,pad: 0
+						  },
+					yaxis:{showTicks: true,
+						   tickOptions: {formatString: '%d&nbsp;&nbsp;'}
+						 }
+				},
+				axesDefaults: {
+					tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
+					tickOptions: {
+						fontFamily: 'Tahoma',
+						fontSize: '12pt'
+					}
+				}
+			};
+			
+		var pieChartOptions = {
+				title:'',
+				legend: {
+					show: false,
+					rendererOptions: {
+						numberRows: 4
+					},
+					location: 'e'
+				},
+				seriesColors: [ "#ff0000", "#888888", "#EEEEEE"],
+				seriesDefaults:{
+					renderer:$.jqplot.PieRenderer,
+					rendererOptions:{
+						showDataLabels: false,
+						padding: 0
+					}
+				},
+				grid : {drawBorder: false, drawGridLines: false, background: '#FFFFFF',gridLineColor : '#DDDDDD', shadow:false}
+			};
+		$("#evaluate").click(function() {
+			red=0;white=0;grey=0;
+			reds=[0,0,0,0,0,0,0];
+			whites=[0,0,0,0,0,0,0];
+			greys=[0,0,0,0,0,0,0];
+			
+			$('input[type="checkbox"]:checked').each(function(index, elem) {
+				if(this.id.substring(1,4)=='red') {red=red+1; reds[this.id.substring(0,1)]=reds[this.id.substring(0,1)]+1;}
+				if(this.id.substring(1,6)=='white') {white=white+1;whites[this.id.substring(0,1)]=whites[this.id.substring(0,1)]+1;}
+				if(this.id.substring(1,5)=='grey') {grey=grey+1;greys[this.id.substring(0,1)]=greys[this.id.substring(0,1)]+1;}
+			});
+			//$("#dialog").dialog("open");
+
+			line1 = [['Red', red],['Grey', grey],['White', white]];
+			$.jqplot('chart1', [line1], chartOptions).replot();
+			acc1Line1 = [['Red', reds[0]],['Grey', greys[0]],['white', whites[0]]];
+			$.jqplot('chart2', [acc1Line1], pieChartOptions).replot();
+			acc1Line2 = [['Red', reds[1]],['Grey', greys[1]],['white', whites[1]]];
+			$.jqplot('chart3', [acc1Line2], pieChartOptions).replot();
+			acc1Line3 = [['Red', reds[2]],['Grey', greys[2]],['white', whites[2]]];
+			$.jqplot('chart4', [acc1Line3], pieChartOptions).replot();
+			acc1Line4 = [['Red', reds[3]],['Grey', greys[3]],['white', whites[3]]];
+			$.jqplot('chart5', [acc1Line4], pieChartOptions).replot();
+			acc1Line5 = [['Red', reds[4]],['Grey', greys[4]],['white', whites[4]]];
+			$.jqplot('chart6', [acc1Line5], pieChartOptions).replot();
+			acc1Line6 = [['Red', reds[5]],['Grey', greys[5]],['white', whites[5]]];
+			$.jqplot('chart7', [acc1Line6], pieChartOptions).replot();
+			if(red>0) $("#red").dialog("open");
+		});
+		
+		$('#chart1').bind('jqplotDataClick', 
+            function (ev, seriesIndex, pointIndex, data) {
+                if(pointIndex == 0) window.open("Red.Zone.pdf","red")//$("#red").dialog("open");
+				if(pointIndex == 1) window.open("Grey.Zone.pdf","grey")//$("#grey").dialog("open");
+				if(pointIndex == 2) window.open("White.Zone.pdf","white")//$("#white").dialog("open");
+            }
+        );
+		$("#print").click(function() {
+			window.print();
+		});
+		
+		$("#clear").click(function() {
+			$('#fullForm')[0].reset();
+			$.jqplot('chart1', [line1], chartOptions).destroy();
+			$.jqplot('chart2', [acc1Line1], chartOptions).destroy();
+			$.jqplot('chart3', [acc1Line2], chartOptions).destroy();
+			$.jqplot('chart4', [acc1Line3], chartOptions).destroy();
+			$.jqplot('chart5', [acc1Line4], chartOptions).destroy();
+			$.jqplot('chart6', [acc1Line5], chartOptions).destroy();
+			$.jqplot('chart7', [acc1Line6], chartOptions).destroy();
+		});
+	
+	});
+	</script>
+  </head>
+  <body>
+   <div id="header"></div>
+   <div id="body">
+	<div id="heading"><h1>Are my students <br> <i>IN THE ZONE </i>for learning? </h1><hr><h2>A TOOL for profiling our students' levels of alertness and sensory needs.</h2><hr>
+	<br><b>Name of Student <input type="text" id="name" style="width:320px;"></b><br>
+	</div>
+	<form id="fullForm">
+	<div id="accordion">
+		<h3 id="acc1" title="Proprioception involves the information we receive from our muscles and joints about our body position, and movement in space (SPD Australia, 2010). There are receptors located within our muscles, joints, ligaments and other connective tissue. Our proprioceptive system sends information to the cerebellum, giving feedback on what our muscles and joints are doing (SPD Australia, 2010)."><table><tr><td><div id="orangenote"><b>This teacher tool is a Guide only. </b><br>Please consult an Occupational Therapist.<div></td><td>PROCESSING OF PROPRIOCEPTION</td><td> <div id="chart2" style="width:80px; height:80px;"> </div></td></tr></table></h3>
+		<div>
+				<div id="redzone"><i>Red zone - Sensitive; avoiding; defensive; fright/flight/fight</i></div>
+				<div style="text-align:left">Note: It is rare to find a person with sensitivity to proprioceptive input. Most people seek it out as a feel-good sensation and regulating tool. Proprioceptive input through heavy muscle work is the most powerful strategy for most students with sensory processing challenges.</div>
+				<br>This student may:<br>
+				<input type="checkbox" class="red_box" id="0red_check1" />Avoid deep pressure or hugs (this could be a tactile/touch issue rather than a proprioceptive issue).<br>
+				<input type="checkbox" class="red_box" id="0red_check2" />Avoid activities that involve heavy muscle work (this could be due to poor strength or motor planning rather than sensitivity to proprioceptive input).<br>
+				<input type="checkbox" class="red_box" id="0red_check3" />Pull away if joints are squeezed together or compressed. <br>
+				<br>
+				<div id="greyzone"><i>Grey zone – low registration of sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="grey_box" id="0grey_check1" />Apply light pressure on pencil, be aimless when drawing, make light, unidentifiable marks on page.<br>
+				<input type="checkbox" class="grey_box" id="0grey_check2" />Let the pencil or object fall out of his or her hand and not notice.<br>
+				<input type="checkbox" class="grey_box" id="0grey_check3" />Have difficulty imitating or copying body positions or actions.<br>
+				<input type="checkbox" class="grey_box" id="0grey_check4" />Lean on people or furniture.<br>
+				<input type="checkbox" class="grey_box" id="0grey_check5" />Slump when sitting / have poor posture and low muscle tone.<br>
+				<input type="checkbox" class="grey_box" id="0grey_check6" />Sit on floor with knees bent and legs in a W-position.<br>
+				<input type="checkbox" class="grey_box" id="0grey_check7" />Trip or fall frequently or bump into objects or people.<br>
+				<input type="checkbox" class="grey_box" id="0grey_check8" />Fail to catch himself or stop himself from falling.<br>
+				<input type="checkbox" class="grey_box" id="0grey_check9" />Show poor coordination and appear to be clumsy.<br>
+				<input type="checkbox" class="grey_box" id="0grey_check10" />Seem unaware of his own actions or impact on the environment, e.g. didn’t notice that he knocked over an object.<br>
+				<br>
+				<div id="whitezone"><i>White zone – seeking, craving sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="white_box" id="0white_check1" />Seek out heavy muscle work (climb, push, pull, lift, drag etc.) <br>
+				<input type="checkbox" class="white_box" id="0white_check2" />Craves movement and input to muscles and joints (e.g. stomp, walk heavily, run, bounce, jump)<br>
+				<input type="checkbox" class="white_box" id="0white_check3" />Crave deep pressure touch, squeeze, squash (calming and organising input)<br>
+				<input type="checkbox" class="white_box" id="0white_check4" />Seek out tight, squashed space<br>
+				<input type="checkbox" class="white_box" id="0white_check5" />Move furniture, lift and carry objects<br>
+				<input type="checkbox" class="white_box" id="0white_check6" />Seem to enjoy bumping into people or objects or purposely fall<br>
+				<input type="checkbox" class="white_box" id="0white_check7" />Grasp objects too tightly.<br>
+				<input type="checkbox" class="white_box" id="0white_check8" />Use too much force or be rough, break objects and seem destructive without meaning to be e.g. slams door<br>
+				<input type="checkbox" class="white_box" id="0white_check9" />Walk on tip toes and/or lock knee joints to stiffen legs and get more stability and control through legs (also in tactile and vestibular sections)
+		</div>
+		
+		<h3 title="Our tactile system involves the information we receive through our skin. It includes two modalities, firstly discriminative touch which includes fine touch, pressure and vibrations. Discriminative touch allows us to determine the shape and feel of an object without first seeing what the object looks like. The second modality serves a protective role through the perception of temperature and pain and also includes the sensations of an itch or tickle (Sensory Processing Disorder [SPD] Australia, 2010)."><table><tr><td><div id="orangenote"><b>This teacher tool is a Guide only. </b><br>Please consult an Occupational Therapist.<div></td><td>TOUCH (TACTILE) PROCESSING</td><td> <div id="chart3" style="width:80px; height:80px;"> </div> </td></tr></table></h3>
+		<div>
+				<div id="redzone"><i>Red zone - Sensitive; avoiding; defensive; fright/flight/fight</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="red_box" id="1red_check1" />Avoid touching different textures or participating in activities such as craft, messy play, cooking or gardening, be wary, hesitant or distressed.<br>
+				<input type="checkbox" class="red_box" id="1red_check2" />Appear anxious to clean hands or face or change clothes if wet or messy. <br>
+				<input type="checkbox" class="red_box" id="1red_check3" />Over-react to light touch but seek out deep pressure or potentially painful sensations.<br>
+				<input type="checkbox" class="red_box" id="1red_check4" />Pull away from being touched or refuse physical comfort (may need own space and time to recover).<br>
+				<input type="checkbox" class="red_box" id="1red_check5" />Resist hand-over-hand guidance.<br>
+				<input type="checkbox" class="red_box" id="1red_check6" />Dislikes/ avoids being too close to other students or teachers, may be restless or disruptive when lining up or sitting close to other students.<br>
+				<input type="checkbox" class="red_box" id="1red_check7" />Prefers touch on his or her own terms (prefers to be in control and initiate touch).<br>
+				<input type="checkbox" class="red_box" id="1red_check8" />Be fussy about clothing, rip or tear clothing if distressed or irritated (E.g. may only wear long sleeves even in summer or need tags removed from clothing).<br>
+				<input type="checkbox" class="red_box" id="1red_check9" />Walk on tip toes to limit tactile input to feet, avoid walking barefoot or be fussy about wearing socks and shoes.<br>
+				<br>
+				<div id="greyzone"><i>Grey zone – low registration of sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="grey_box" id="1grey_check1" />Be slow to process tactile information or touch cues.<br>
+				<input type="checkbox" class="grey_box" id="1grey_check2" />Not notice food on face or mess on hands.<br>
+				<input type="checkbox" class="grey_box" id="1grey_check3" />Not notice when underpants or nappy is soiled or wet, unaware of bowel or bladder motions.<br>
+				<input type="checkbox" class="grey_box" id="1grey_check4" />Not notice that they are holding an item in their hands.<br>
+				<input type="checkbox" class="grey_box" id="1grey_check5" />Find it difficult to locate items in pocket or bag using touch alone (may need to look).<br>
+				<input type="checkbox" class="grey_box" id="1grey_check6" />Not notice clothes twisted or ill-fitting.<br>
+				<input type="checkbox" class="grey_box" id="1grey_check7" />Appear to have poor pencil grasp.<br>
+				<input type="checkbox" class="grey_box" id="1grey_check8" />Apply light pressure on pencil.<br>
+				<input type="checkbox" class="grey_box" id="1grey_check9" />Have a high pain threshold; be slow to react to pain, be unaware of cuts and bruises.<br>
+				<br>
+				<div id="whitezone"><i>White zone – seeking, craving sensory input</i></div>
+				<br>This student may:<br>								
+				
+				<input type="checkbox" class="white_box" id="1white_check1" />Have a strong need to touch walls, objects, people.<br>
+				<input type="checkbox" class="white_box" id="1white_check2" />Crave certain tactile input, e.g. messy activities, bark, twigs, sand in the playground.<br>
+				<input type="checkbox" class="white_box" id="1white_check3" />Seek out hot or cold surfaces, e.g. the window, fridge or metal objects.<br>
+				<input type="checkbox" class="white_box" id="1white_check4" />Play with food.<br>
+				<input type="checkbox" class="white_box" id="1white_check5" />Smear faeces or play with wet nappy.<br>
+				<input type="checkbox" class="white_box" id="1white_check6" />Frequently go to the bathroom or bubbler to seek out water.<br>
+				<input type="checkbox" class="white_box" id="1white_check7" />Crave hugs or physical affection.<br>
+				<input type="checkbox" class="white_box" id="1white_check8" />Resort to self-harm (hit or bite own body, fall on floor) and not seem to find it painful.<br>
+				<input type="checkbox" class="white_box" id="1white_check9" />Frequently bump into people or objects on purpose.<br>
+				<input type="checkbox" class="white_box" id="1white_check10" />Fidget—flick, twirl, touch objects or people excessively (if looking intently, they may be craving visual input).<br>
+				<input type="checkbox" class="white_box" id="1white_check11" />Handle objects in a rough manner, e.g. bangs, pulls, pushes, breaks toys unintentionally.<br>
+				<input type="checkbox" class="white_box" id="1white_check12" />Like to walk barefoot and explore textures and surfaces with feet.<br>				
+		</div>
+		
+		<h3 title="Vestibular processing refers to movement, balance sensations and orientation in space (SPD Australia, 2010).  These are the combined functions of the semicircular canals of the inner ear, basal ganglia, cerebellum and the cerebral motor cortex. This system regulates the feelings of motion such as balance, acceleration, deceleration, starts and stops, direction, rhythm, and creates and stores patterns of movement (Texas School for the Blind & Visulaly Impaired, 2010). The hair cells inside the semicircular canals are activated according to position and movement of the head in relation to gravity. Vestibular processing is likely to be impacted by auditory impairment. For example individuals with inner ear infections can often experience difficulties with balance.  The vestibular system highly influences alertness levels and combines with the proprioceptive system to regulate muscle tone."><table><tr><td><div id="orangenote"><b>This teacher tool is a Guide only. </b><br>Please consult an Occupational Therapist.<div></td><td>VESTIBULAR (MOVEMENT) PROCESSING</td><td> <div id="chart4" style="width:80px; height:80px;"> </div> </td></tr></table></h3>
+		<div>
+				<div id="redzone"><i>Red zone - Sensitive; avoiding; defensive; fright/flight/fight</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="red_box" id="2red_check1" />Fear being upside down, tipped sideways, being off balance or when moving backwards.<br>
+				<input type="checkbox" class="red_box" id="2red_check2" />Become anxious when feet are not touching the ground, e.g. sitting on the toilet with feet unsupported.<br>
+				<input type="checkbox" class="red_box" id="2red_check3" />Be anxious about walking up or down inclines or stairs.<br>
+				<input type="checkbox" class="red_box" id="2red_check4" />Reject unfamiliar movement activities. <br>
+				<input type="checkbox" class="red_box" id="2red_check5" />Be afraid of movement, fear falling or heights or is gravitationally insecure, may avoid balance activities.<br>
+				<input type="checkbox" class="red_box" id="2red_check6" />Get motion sickness easily.<br>
+				<input type="checkbox" class="red_box" id="2red_check7" />Be anxious about swimming or other sporting activities (this could also be a tactile or multi-sensory issue).<br>
+				<input type="checkbox" class="red_box" id="2red_check8" />Become overwhelmed and flighty when out in an open space, e.g. an oval. May appear to be running away.<br>
+				<input type="checkbox" class="red_box" id="2red_check9" />Need to be in control of his own movement.<br>
+				<input type="checkbox" class="red_box" id="2red_check10" />Startle easily or freeze in shock or drop to ground in fright if unbalanced, bumped or moved without warning.<br>
+				<input type="checkbox" class="red_box" id="2red_check11" />Be afraid of or avoid busy environments where he may get jostled or knocked over.<br>
+				<br>
+				<div id="greyzone"><i>Grey zone – low registration of sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="grey_box" id="2grey_check1" />Experience difficulty maintaining balance and controlling the speed and direction of movement.<br>
+				<input type="checkbox" class="grey_box" id="2grey_check2" />Fails to catch himself when falling (poor body awareness and postural reflexes).<br>
+				<input type="checkbox" class="grey_box" id="2grey_check3" />Seem unaware of being moved or where they are walking (i.e. vaguely goes along with the group).<br>
+				<input type="checkbox" class="grey_box" id="2grey_check4" />Wonder off.<br>
+				<input type="checkbox" class="grey_box" id="2grey_check5" />Have poor spatial awareness and orientation and be easily confused by directions.<br>
+				<input type="checkbox" class="grey_box" id="2grey_check6" />Appear to have slow laboured movements.<br>
+				<input type="checkbox" class="grey_box" id="2grey_check7" />Appear lethargic.<br>
+				<input type="checkbox" class="grey_box" id="2grey_check8" />Seem to avoid physical activity (could be a planning issue or difficulty initiating/starting movement).<br>
+				<br>
+				<div id="whitezone"><i>White zone – seeking, craving sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="white_box" id="2white_check1" />Crave certain movement experiences (e.g. jumping, swinging, spinning hopping, bouncing, running).<br>
+				<input type="checkbox" class="white_box" id="2white_check2" />Seek out gross motor movement and may have a very high tolerance to spinning, jumping, swinging, may not seem to get dizzy.<br>
+				<input type="checkbox" class="white_box" id="2white_check3" />Pace and walk around classroom or playground (may be able to sit still if focussed on visually motivating or moving objects).<br>
+				<input type="checkbox" class="white_box" id="2white_check4" />Fidget, rock, squirm or move in chair or shake head and generally have difficulty sitting still in chair or on floor, may need to keep moving (this may interfere with listening and interacting or it may in fact assist the student to listen and be attentive).<br>
+				<input type="checkbox" class="white_box" id="2white_check5" />Enjoy sensation of falling without regard to safety or playing on edge of furniture, balance on walls or beams.<br>
+				<input type="checkbox" class="white_box" id="2white_check6" />Like inverted upside down position.<br>
+				<input type="checkbox" class="white_box" id="2white_check7" />Become over- excited by uncontrolled movement activities (e.g. spinning in different directions,  summersaults, being chased)<br>
+				<input type="checkbox" class="white_box" id="2white_check8" />Become over-excited and run when in open space, may appear to want to be chased.<br>
+				<input type="checkbox" class="white_box" id="2white_check9" />Walk on tip toes to stiffen legs and get speed (also in tactile sensitive and proprioception sections)<br>				
+		</div>
+		
+		<h3 title="Our auditory system involves the role of the outer ear, the middle ear and the inner ear. The outer ear, or pinna, collects sounds from the environment, which travels through the ear canal into the middle ear. The middle ear changes the sounds into vibrations, causing the eardrum to vibrate, and to move tiny bones called ossicles, which help deliver the vibrations to the inner ear (Crossman & Neary, 2010). These vibrations enter the cochlea, a part of the inner ear, causing tiny hairs within the cochlear to move. This creates nerve signals that are sent to the brain via the cochlear fibres of the vestibulocochlear nerve (Crossman & Neary, 2010). Auditory and vestibular movement processing are closely linked. Many of our students have audiology tests that show normal hearing, however the problem lies in their brain’s processing of auditory information not the acuity of their hearing."><table><tr><td><div id="orangenote"><b>This teacher tool is a Guide only. </b><br>Please consult an Occupational Therapist.<div></td><td>AUDITORY (SOUND) PROCESSING</td><td> <div id="chart5" style="width:80px; height:80px;"> </div> </td></tr></table></h3>
+		<div>
+				<div id="redzone"><i>Red zone - Sensitive; avoiding; defensive; fright/flight/fight</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="red_box" id="3red_check1" />Experience sensitivity to sound, startle easily or block ears from loud or unexpected noise, e.g. another student vocalising, school bell, fire alarm, microphone feedback, door slamming
+				<input type="checkbox" class="red_box" id="3red_check2" />Become distressed or frustrated or find it difficult to pay attention in noisy situations, may avoid noisy environments or places that echo or distort sound.<br>
+				<input type="checkbox" class="red_box" id="3red_check3" />Tune out sound all together, including the teacher’s voice and therefore take longer time to process auditory information.<br>
+				<input type="checkbox" class="red_box" id="3red_check4" />Have fears of certain sounds and anxiously anticipate them, e.g. microwave or school bell.<br>
+				<input type="checkbox" class="red_box" id="3red_check5" />Block ears when processing multisensory information or when overwhelmed, e.g. blocks ears when looking at something intently.<br>
+				<input type="checkbox" class="red_box" id="3red_check6" />Overly notice, be easily distracted or distressed by irrelevant noises in the environment, e.g. air conditioner, footsteps, birds, ticking of clocks, hum of computer, other students<br>
+				<input type="checkbox" class="red_box" id="3red_check7" />Increase the volume of their own voice when the volume of the teacher or classroom increases (as a way of blocking out the environmental sounds)..<br>
+				<input type="checkbox" class="red_box" id="3red_check8" />Vocalise, hum or sing to self (this could be helping to block out external noise and keep himself calm).<br>
+				<br>
+				<div id="greyzone"><i>Grey zone – low registration of sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="grey_box" id="3grey_check1" />Be slow to process auditory input (may need more time to process).<br>
+				<input type="checkbox" class="grey_box" id="3grey_check2" />Need words or instructions repeated.<br>
+				<input type="checkbox" class="grey_box" id="3grey_check3" />Miss auditory information, take longer to respond to directions or easily lose their place in the conversation.<br>
+				<input type="checkbox" class="grey_box" id="3grey_check4" />Not respond to own name. <br>
+				<input type="checkbox" class="grey_box" id="3grey_check5" />Have difficulty locating the source or direction of the sound.<br>
+				<input type="checkbox" class="grey_box" id="3grey_check6" />Vocalise, hum or sing to self (this could be helping them to stay alert).<br>
+				<input type="checkbox" class="grey_box" id="3grey_check7" />Disengage in noisy environments or be unable to participate.<br>
+				<br>
+				<div id="whitezone"><i>White zone – seeking, craving sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="white_box" id="3white_check1" />Make noise with objects, e.g. bangs, throws, taps objects.<br>
+				<input type="checkbox" class="white_box" id="3white_check2" />Repeat actions that produce noise, e.g. flush toilet, yell or throw objects.<br>
+				<input type="checkbox" class="white_box" id="3white_check3" />Vocalise, hum, sing or chat frequently and loudly to provide themselves with sensory input.<br>
+				<input type="checkbox" class="white_box" id="3white_check4" />Shout or yell in places that have an echo.<br>
+				<input type="checkbox" class="white_box" id="3white_check5" />Seek out sounds and music.<br>				
+		</div>
+		
+		<h3 title="Vision begins when light rays enter the eye through our cornea. The cornea and our lens channel these rays to the retina, which is at the back of the eye (Vision Australia, 2012). Within the retina, we have photoreceptor cells, which turn the light rays into nerve impulses. These impulses carry visual information to the occipital lobe of the cerebral hemisphere in our brain, via the optic nerve (Crossman & Neary, 2010). This is where visual perception and processing occurs. Many of our students have vision tests that show normal eye-sight with no need for corrective lenses, however the problem lies in their brain’s ability to process visual sensory information not the acuity of their eyes. Some students have benefitted from wearing Irlen lenses which help to manage the distortions caused by their visual processing system (Irlen, 2013)."><table><tr><td><div id="orangenote"><b>This teacher tool is a Guide only. </b><br>Please consult an Occupational Therapist.<div></td><td>VISUAL PROCESSING</td><td> <div id="chart6" style="width:80px; height:80px;"> </div> </td></tr></table></h3>
+		<div>
+				<div id="redzone"><i>Red zone - Sensitive; avoiding; defensive; fright/flight/fight</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="red_box" id="4red_check1" />Over-notice/be distracted by visual input, e.g. movement of other students, leaves moving in the breeze, notice small changes to the environment or when things are out of place.<br>
+				<input type="checkbox" class="red_box" id="4red_check2" />Vigilantly watch people or moving objects.<br>
+				<input type="checkbox" class="red_box" id="4red_check3" />Startle at or avoid moving objects, e.g. a ball <br>
+				<input type="checkbox" class="red_box" id="4red_check4" />Be distressed by the sight of moving objects, e.g. battery operated toy.<br>
+				<input type="checkbox" class="red_box" id="4red_check5" />Have difficulty making eye contact.<br>
+				<input type="checkbox" class="red_box" id="4red_check6" />Be sensitive to certain types of light or overly notice changes in light.<br>
+				<input type="checkbox" class="red_box" id="4red_check7" />Cover eyes, squint or shut eyes.<br>
+				<input type="checkbox" class="red_box" id="4red_check8" />Look from the corner of his/her eye (perhaps to fix and focus in on image and/or block out other visual sensory information).<br>
+				<input type="checkbox" class="red_box" id="4red_check9" />Be afraid of the dark.<br>
+				<input type="checkbox" class="red_box" id="4red_check10" />Choose dark spaces.<br>
+				<br>
+				<div id="greyzone"><i>Grey zone – low registration of sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="grey_box" id="4grey_check1" />Fixate on small details but not focus on the task at hand, e.g. pick at fluff on floor rather than focus on the book in front of them.<br>
+				<input type="checkbox" class="grey_box" id="4grey_check2" />Look vaguely at objects. <br>
+				<input type="checkbox" class="grey_box" id="4grey_check3" />Be distracted by the shine on laminated pictures rather than focus on the picture itself.<br>
+				<input type="checkbox" class="grey_box" id="4grey_check4" />Stare out into space.<br>
+				<input type="checkbox" class="grey_box" id="4grey_check5" />Miss demonstrations or written information. <br>
+				<input type="checkbox" class="grey_box" id="4grey_check6" />Find it difficult or be slow to locate items or words.<br>
+				<input type="checkbox" class="grey_box" id="4grey_check7" />Have difficulty with visual discrimination of colour, shape, size, depth.<br>
+				<input type="checkbox" class="grey_box" id="4grey_check8" />Bump into objects or people as if they didn’t see them.<br>
+				<br>
+				<div id="whitezone"><i>White zone – seeking, craving sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="white_box" id="4white_check1" />Intently watch spinning or moving objects.<br>
+				<input type="checkbox" class="white_box" id="4white_check2" />Stare at lights (especially fluorescent lights which can flicker).<br>
+				<input type="checkbox" class="white_box" id="4white_check3" />Flick objects in front of face.<br>
+				<input type="checkbox" class="white_box" id="4white_check4" />Look from the corner of their eye, e.g. to fix and focus or process the image differently.<br>
+				<input type="checkbox" class="white_box" id="4white_check5" />Poke finger in eye or press down on eyelids to distort image.<br>
+				<input type="checkbox" class="white_box" id="4white_check6" />Stares intently or gets absorbed by patterns or visually motivating items.<br>
+				<input type="checkbox" class="white_box" id="4white_check7" />Brings items close to eyes, stares closely at the TV or computer screen or looks through fingers.<br>
+				<input type="checkbox" class="white_box" id="4white_check8" />Be visually distracted; may notice visual input and movement more than others.<br>				
+		</div>		
+		
+		<h3 title="The Gustatory System involves receptors within our taste buds in our tongue, mouth and throat that transmit information to the brain, where specific tastes are identified (SPD Australia, 2010). There are four different tastes that our taste buds identify and send our brain information about; sweet, sour, bitter and salt. These tastes, as well as the texture and temperature of foods, combine with our olfactory system to perceive taste and flavour. Many students impose restrictions on their own diets due to sensitivities and fears in this system. This is a primal protective mechanism that may be due to a metabolic issue, allergy or intolerance, poor digestion (e.g. chronic constipation), challenges with chewing and processing food or liquid or distortions in the perception of taste and texture, e.g. some people describe a constant metallic taste in their mouth due to an imbalance of minerals in their metabolic system. 
+		
+		The Olfactory system senses and processes smells. When we notice a smell, information is taken to the amygdala in our brains through the olfactory nerve. Unlike the other sensory systems that transport nerve impulses through the spinal cord and the brain stem, the olfactory nerve attaches directly to the forebrain, in particular the olfactory bulb located on the frontal lobe, just above the nose (Crossman & Neary, 2010). Olfactory information further travels to the limbic system, which is responsible for our emotions, behaviour and memories (SPD Australia, 2010). The use of fragrances can therefore be powerful in altering moods, emotions and alertness levels."><table><tr><td><div id="orangenote"><b>This teacher tool is a Guide only. </b><br>Please consult an Occupational Therapist.<div></td><td>GUSTATORY (TASTE) AND OLFACTORY (SMELL) PROCESSING</td><td> <div id="chart7" style="width:80px; height:80px;"> </div> </td></tr></table></h3>
+		<div>
+				<div id="redzone"><i>Red zone - Sensitive; avoiding; defensive; fright/flight/fight</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="red_box" id="5red_check1" />Be fussy about food: texture and/or taste. , e.g. may eat only one type of food.<br>
+				<input type="checkbox" class="red_box" id="5red_check2" />Avoid certain tastes or smells or not eat if different foods are touching on the plate (as a protective fright/flight/fight response)<br>
+				<input type="checkbox" class="red_box" id="5red_check3" />Be afraid of trying new foods<br>
+				<input type="checkbox" class="red_box" id="5red_check4" />Notice smells and be affected by them more than others <br>
+				<input type="checkbox" class="red_box" id="5red_check5" />Have a strong gag reflex (e.g. to tastes, smells or textures)<br>
+				<input type="checkbox" class="red_box" id="5red_check6" />Crave mouthing items, eating certain flavours or textures or smelling items or people (this could be to CALM themselves)<br>
+				<br>
+				<div id="greyzone"><i>Grey zone – low registration of sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="grey_box" id="5grey_check1" />Not notice food left in mouth or around face<br>
+				<input type="checkbox" class="grey_box" id="5grey_check2" />Seem to “forget” to chew<br>
+				<input type="checkbox" class="grey_box" id="5grey_check3" />Have poor saliva control and/or drool (due to poor tactile sensory feedback around mouth and/or low muscle tone)<br>
+				<input type="checkbox" class="grey_box" id="5grey_check4" />Not notice smells e.g. soiled nappy<br>
+				<input type="checkbox" class="grey_box" id="5grey_check5" />Crave mouthing items, eating certain flavours or textures or smelling items (this could be to ALERT themselves)<br>
+				<br>
+				<div id="whitezone"><i>White zone – seeking, craving sensory input</i></div>
+				<br>This student may:<br>
+				
+				<input type="checkbox" class="white_box" id="5white_check1" />Stuff mouth with food (could be for better oral-motor control through enhanced sensory feedback)<br>
+				<input type="checkbox" class="white_box" id="5white_check2" />Frequently seek or crave food or something in their mouth (e.g. may chew on collar, clothing).<br>
+				<input type="checkbox" class="white_box" id="5white_check3" />lick, taste or Mouth non-food items (e.g. pencils, plastic, rocks, sand, leaves).<br>
+				<input type="checkbox" class="white_box" id="5white_check4" />Seek out some smells, notices smells more than others.<br>
+				<input type="checkbox" class="white_box" id="5white_check5" />May be drawn to certain smells more than others, e.g. body odour, shampoo.<br>				
+		</div>	
+    </div>
+	</form>
+		<div id="buttonPanel">
+		<input type="button" id="evaluate" value="Evaluate" style="font-size: 20px"/>	
+		<input type="button" id="print" value="Print" style="font-size: 20px"/>
+		<input type="button" id="clear" value="Clear" style="font-size: 20px"/>
+		</div>
+		<div id="chart1" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div>
+		
+		<!--div id="logo"><img src="autismcentrallogo.jpg" height="90" width="180"/><img src="logo.jpg" height="80" width="180"/></div-->
+	</div>
+	<div id="dialog" title="Zones based on state">
+		
+	</div>
+	<div id="red" title="Note">Any statements in the red zone should be addressed (i.e. strategies from the appropriate section implemented), even if overall the student is in the white zone.</div>
+	<div id="white" title="White state">
+		These are the strategies to handle the white state.
+	</div>
+	<div id="grey" title="Grey state">
+		These are the strategies to handle the Grey state.
+	</div>
+	
+  </body>
+</html>
