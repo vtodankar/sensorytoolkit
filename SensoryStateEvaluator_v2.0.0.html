@@ -22,6 +22,7 @@
 	<script src="js/jquery.ui.effect-blind.js"></script>
 	<script src="js/jquery.ui.effect-explode.js"></script>
 	<script src="js/jquery.ui.tooltip.js"></script>
+	<script src="js/jquery-scrollto.js"></script>
 	
     <script class="include" type="text/javascript" src="js/jqplot/jquery.jqplot.min.js"></script>
     <script type="text/javascript" src="js/jqplot/shCore.min.js"></script>
@@ -47,11 +48,11 @@
 		max-width: 940px;
 	}
 	.ui-dialog-titlebar {
-		background-color: #FF0000;
+		background-color: #FF3399;
 		background-image: none;
 		color: #000;
 		fontFamily: 'Tahoma';
-		fontSize: '9pt';
+		fontSize: '8pt';
 	}
 	#header {
 		background: url("topwave.jpg") no-repeat scroll 0px 0px;
@@ -117,7 +118,7 @@
 		display: block;
 		margin-left: 0px;
 		margin-right: 0px;
-		background-color: #FF0000;
+		background-color: #FF3399;
 		color: #000;
 		border: 1px solid #111111;
 		border-radius:4px;
@@ -127,7 +128,7 @@
 		display: block;
 		margin-left: 0px;
 		margin-right: 0px;
-		background-color: #888888;
+		background-color: #BFBFBF;
 		color: #000;
 		border: 1px solid #111111;
 		border-radius:4px;
@@ -137,7 +138,7 @@
 		display: block;
 		margin-left: 0px;
 		margin-right: 0px;
-		background-color: #EFEFEF;
+		background-color: #C99FC1;
 		color: #000;
 		border: 1px solid #111111;
 		border-radius:4px;
@@ -168,19 +169,19 @@
 	</style>
 	<style>
 		.red_box {
-			outline: solid 2px #FF0000;
+			outline: solid 2px #FF3399;
 			margin-right: 2px;
 			float: left;
 			margin-left: -22px;
 			}
 		.grey_box {
-			outline: solid 2px #888888;
+			outline: solid 2px #BFBFBF;
 			margin-right: 2px;
 		    float: left;
 			margin-left: -22px;			
 			}
 		.white_box {
-			outline: solid 2px #EFEFEF;
+			outline: solid 2px #C99FC1;
 			margin-right: 2px;
 		    float: left;
 			margin-left: -22px;
@@ -206,9 +207,9 @@
 		});
 		
 		var dialogOptions={
-			maxWidth:800,
+			maxWidth:900,
             maxHeight: 90,
-            width: 800,
+            width: 900,
             height: 90,
 			autoOpen: false,
 			show: {
@@ -216,7 +217,7 @@
 				duration: 1000
 			},
 			hide: {
-				effect: "explode",
+				effect: "blind",
 				duration: 1000
 			}
 		};
@@ -227,19 +228,22 @@
 		$("#white").dialog(dialogOptions);
 		$("#grey").dialog(dialogOptions);
 
-		
+		//Scroll to the top of the menu in accordion to avoid missing the menu
+		$('#accordion').bind('accordionactivate', function(event, ui) {
+			$(window).scrollTop(ui.newHeader.offset().top);
+		});
 		
 		var line1 = [['Red', red],['Grey', grey],['White', white]];
 
 		var chartOptions ={
 				title:'',
-				seriesColors: [ "#ff0000", "#888888", "#EFEFEF"],
+				seriesColors: [ "#FF3399", "#BFBFBF", "#C99FC1"],
 				seriesDefaults:{
 					pointLabels: { show: true },
 					renderer:$.jqplot.BarRenderer,
 					rendererOptions: {varyBarColor: true, showDataLabels: true}
 				},
-				grid : {drawGridLines: true, background: '#FFFFDD',gridLineColor : '#DDDDDD'},
+				grid : {drawGridLines: true, background: '#FFFFEE',gridLineColor : '#DDDDDD'},
 				axes:{
 					xaxis:{	renderer: $.jqplot.CategoryAxisRenderer,pad: 0
 						  },
@@ -288,7 +292,7 @@
 			});
 			//$("#dialog").dialog("open");
 
-			line1 = [['Red', red],['Grey', grey],['White', white]];
+			line1 = [['OVER responsive', red],['UNDER responsive', grey],['Seeking the zone', white]];
 			$.jqplot('chart1', [line1], chartOptions).replot();
 			acc1Line1 = [['Red', reds[0]],['Grey', greys[0]],['white', whites[0]]];
 			$.jqplot('chart2', [acc1Line1], pieChartOptions).replot();
@@ -378,6 +382,8 @@
 			    <br>
 				<br>
 				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>
+				
+				<br><b>Notes <br>&nbsp;<textarea id="notes" cols="80" rows="10"></textarea> </b><br>
 		</div>
 		
 		
@@ -424,11 +430,13 @@
 				<input type="checkbox" class="white_box" id="1white_check7" />Crave touch, hugs or physical affection.<br>
 				<input type="checkbox" class="white_box" id="1white_check8" />Resort to self-harm (hit or bite own body, fall on floor) and not seem to find it painful.<br>
 				<input type="checkbox" class="white_box" id="1white_check9" />Frequently bump into people or objects on purpose.<br>
-				<input type="checkbox" class="white_box" id="1white_check10" />Fidget-flick, twirl, touch objects or people excessively (if looking intently, they may be craving visual input).<br>
+				<input type="checkbox" class="white_box" id="1white_check10" />Fidget-flick, twirl, touch objects or people excessively (if looking intently, they may be craving visual and vestibular input).<br>
 				<input type="checkbox" class="white_box" id="1white_check11" />Handle objects in a rough manner, e.g. bangs, pulls, pushes, breaks toys unintentionally.<br>
 				<input type="checkbox" class="white_box" id="1white_check12" />Like to walk barefoot and explore textures and surfaces with feet.<br>
 				<br>
-				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>				
+				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>	
+
+				<br><b>Notes <br>&nbsp;<textarea id="notes" cols="80" rows="10"></textarea> </b><br>				
 		</div>
 		
 		<h3 title="Vestibular processing refers to movement, balance sensations and orientation in space. These are the combined functions of the semicircular canals of the inner ear, basal ganglia, cerebellum and the cerebral motor cortex. This system regulates the feelings of motion such as balance, acceleration, deceleration, starts and stops, direction, rhythm, and creates the stores patters of movement? (Texas School for the Blind and Visually Impaired, 2010). The hair cells inside the semicircular canals are activated according to position and movement of the head in relation to gravity. Vestibular processing and auditory processing are closely related as they are one apparatus and share nerves and blood vessels. For example, individuals with inner ear infections can often experience difficulties with balance and some students with auditory processing issues often seek out vestibular movement. The vestibular system highly influences alertness levels and combines with the proprioceptive and visual systems to provide an understanding of the body in space and the movement of the head in relation to the body and the environment. Many of our students have challenges with vestibular information processing. This needs to be addressed carefully and urgently as accurate vestibular processing is essential for function in daily life."><table><tr><td>LEARNING THROUGH MOVEMENT -VESTIBULAR PROCESSING</td><td> <div id="chart4" style="width:80px; height:80px;"> </div> </td></tr></table></h3>
@@ -476,7 +484,8 @@
 				<input type="checkbox" class="white_box" id="2white_check8" />Become over-excited and run when in open space, may appear to want to be chased (this could be a "flight" response).<br>
 				<!--input type="checkbox" class="white_box" id="2white_check9" />Walk on tip toes to stiffen legs and get speed (also in tactile sensitive and proprioception sections)<br-->
 				<br>
-				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>					
+				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>
+				<br><b>Notes <br>&nbsp;<textarea id="notes" cols="80" rows="10"></textarea> </b><br>								
 		</div>
 		
 		<h3 title="Our auditory system involves the outer ear, the middle ear and the inner ear. The outer ear, or pinna, collects sounds from the environment, which travels through the ear canal into the middle ear. The middle ear changes the sounds into vibrations, causing the eardrum to vibrate, and to move tiny bones called ossicles, which help deliver the vibrations to the inner ear (Crossman & Neary, 2010). These vibrations enter the cochlea, a part of the inner ear, causing tiny hairs within the cochlear to move. This creates nerve signals that are sent to the brain via the cochlear fibres of the vestibulocochlear nerve (Crossman & Neary, 2010). Auditory and vestibular movement processing are closely linked (as seen in music and movement). Many of our students have audiology tests that show normal hearing; however the problem lies in their brain's processing of auditory information not the acuity of their hearing. "><table><tr><td>LEARNING THROUGH SOUND -AUDITORY PROCESSING</td><td> <div id="chart5" style="width:80px; height:80px;"> </div> </td></tr></table></h3>
@@ -516,7 +525,8 @@
 				<input type="checkbox" class="white_box" id="3white_check4" />Shout or yell in places that have an echo.<br>
 				<input type="checkbox" class="white_box" id="3white_check5" />Seek out sounds and music.<br>
 				<br>
-				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>					
+				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>
+				<br><b>Notes <br>&nbsp;<textarea id="notes" cols="80" rows="10"></textarea> </b><br>								
 		</div>
 		
 		<h3 title="Vision begins when light rays enter the eye through our cornea. The cornea and our lens channel these rays to the retina, which is at the back of the eye (Vision Australia, 2012). Within the retina, we have photoreceptor cells, which turn the light rays into nerve impulses. These impulses carry visual information to the occipital lobe of the cerebral hemisphere in our brain, via the optic nerve (Crossman & Neary, 2010). This is where visual perception and processing occurs. Many of our students have vision tests that show normal eye-sight with no need for corrective lenses, however the problem lies in their brain's ability to process visual sensory information not the acuity of their eyes. Some students have benefitted from wearing tinted lenses (such as Irlen lenses) which help to manage the distortions caused by their visual processing system. Visual motor integration, eye-hand coordination, eye-foot coordination are dependent on accurate processing of visual sensory information."><table><tr><td>LEARNING THROUGH SIGHT -VISUAL PROCESSING</td><td> <div id="chart6" style="width:80px; height:80px;"> </div> </td></tr></table></h3>
@@ -568,7 +578,8 @@
 				<div style="text-align:left">Note: difficulty with eye contact is in all 3 categories because it is a complex action that involves integration and modulation of the senses and regulation of alertness levels as well as social-emotional development.
 				</div>
 				<br>
-				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>					
+				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>
+				<br><b>Notes <br>&nbsp;<textarea id="notes" cols="80" rows="10"></textarea> </b><br>								
 		</div>		
 		
 		<h3 title="The Gustatory System involves receptors within our taste buds in our tongue, mouth and throat that transmit information to the brain, where specific tastes are identified (SPD Australia, 2010). There are four different tastes that our taste buds identify and send our brain information about: sweet, sour, bitter and salt. These tastes, as well as the texture and temperature of foods, combine with our olfactory system to perceive taste and flavour. Many students impose restrictions on their own diets due to sensitivities and fears in this system. This is a primal protective mechanism that may be due to a metabolic issue, allergy or intolerance, poor digestion (e.g. chronic constipation), challenges with chewing and processing food or liquid or distortions in the perception of taste and texture, e.g. some people describe a constant metallic taste in their mouth due to an imbalance of minerals in their metabolic system.
@@ -607,10 +618,11 @@
 				<div style="text-align:left">Note: Mouthing can remain the primary mode of exploration and learning for some students who are diagnosed with developmental delay.
 				</div>
 				<br>
-				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>					
+				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>	
+				<br><b>Notes <br>&nbsp;<textarea id="notes" cols="80" rows="10"></textarea> </b><br>								
 		</div>	
     </div>
-	<br><b>Notes <br>&nbsp;<textarea id="notes" cols="100" rows="10"></textarea> </b><br><br>
+	<br><b>Overall Notes <br>&nbsp;<textarea id="notes" cols="100" rows="10"></textarea> </b><br><br>
 	</form>
 		<div id="buttonPanel">
 		<input type="button" id="evaluate" value="Evaluate" style="font-size: 20px"/>	
@@ -624,13 +636,13 @@
 	<div id="dialog" title="Zones based on state">
 		
 	</div>
-	<div id="red" title="Note that Red zone strategies are needed for this student"></div>
+	<div id="red" title="Note that OVER responsive state strategies are needed for this student"></div>
 	<div id="white" title="White state">
 		These are the strategies to handle the white state.
 	</div>
 	<div id="grey" title="Grey state">
 		These are the strategies to handle the Grey state.
 	</div>
-	
+	v2.0.1
   </body>
 </html>
