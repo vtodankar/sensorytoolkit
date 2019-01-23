@@ -187,7 +187,7 @@
 		    float: left;
 			margin-left: -22px;
 			}
-		.pagebreak { page-break-before: always; } 
+		.pagebreak { page-break-before: always; }
 	</style>
    <script>
    var red=0;
@@ -201,10 +201,12 @@
    var redCounts = [];
    var whiteCounts= [];
    var greyCounts=[];
-   
+    $('.tableHeader').tooltip({show: {effect:"none", delay:0}});
+	
    	$(function() {
 			var tooltips = $( "[title]" ).tooltip( {show: {effect: "slideDown", delay: 1600}});
 		});
+	
 	$(function() {
 		$( "#accordion" ).accordion({
 			heightStyle: "content"
@@ -358,12 +360,12 @@
   <body>
    <div id="header"></div>
    <div id="body">
-	<div id="heading"><h1>Are my students <br> IN THE ZONE for learning? </h1><hr><h2>A TOOL for profiling our students' levels of alertness and sensory needs.</h2><hr>
-	<table>
-	<tr><td style="text-align:right"><b>Name of Student </td><td><input type="text" id="name" style="width:320px;"></b></td></tr>
-	<tr><td style="text-align:right"><b>Date of Birth </td><td><input type="text" id="name" style="width:320px;"></b></td></tr>
-	<tr><td style="text-align:right"><b>Name of Teacher completing checklist</td><td><input type="text" id="name" style="width:320px;"></b></td></tr>
-	<tr><td style="text-align:right"><b>Date of Completion </td><td><input type="text" id="name" style="width:320px;"></b></td></tr>
+	<div id="heading"><h1>IN THE ZONE FOR LEARNING STUDENT RESPONSE CHECKLIST.</h1><hr><h2>ANALYSING THE IMPACTS OF SENSORY INFORMATION PROCESSING CHALLENGES ON ALERTNESS FUNCTION, PARTICIPATION AND LEARNING</h2><hr>
+	<table style="border-spacing: 0px 10px">
+	<tr><td style="text-align:right"><b>Name of Student </td><td><input type="text" id="name" style="width:420px;"></b></td></tr>
+	<tr><td style="text-align:right"><b>Date of Birth </td><td><input type="text" id="name" style="width:420px;"></b></td></tr>
+	<tr><td style="text-align:right"><b>Name of person completing checklist</td><td><input type="text" id="name" style="width:420px;"></b></td></tr>
+	<tr><td style="text-align:right"><b>Date of Completion </td><td><input type="text" id="name" style="width:420px;"></b></td></tr>
 	</table>
 	</div>
 	<form id="fullForm">
@@ -385,17 +387,29 @@
 				<div id="greyzone"><i>UNDER responsive state - <br> low registration of sensory input, slow or low response, "zoned out"</i></div>
 				<div style="text-align:left">Note: Your student's responses in this category may be due to poor strength or coordination of movement. Tick the boxes that apply below and refer to the Meaningful Movement Module for more information.</div>
 				<br>This student may:<br>
-				
-				<input type="checkbox" class="grey_box" id="0grey_check1" />Apply light pressure on pencil, be aimless when drawing, make light, unidentifiable marks on page.<br>
-				<input type="checkbox" class="grey_box" id="0grey_check2" />Let the pencil or object fall out of his or her hand and not notice.<br>
-				<input type="checkbox" class="grey_box" id="0grey_check3" />Have difficulty imitating or copying body positions or actions.<br>
-				<input type="checkbox" class="grey_box" id="0grey_check4" />Lean on people or furniture.<br>
-				<input type="checkbox" class="grey_box" id="0grey_check5" />Slump when sitting / have poor posture/ seem floppy or weak (possibly due to having low muscle tone).<br>
-				<input type="checkbox" class="grey_box" id="0grey_check6" />Sit on floor with knees bent and legs in a W-position (feet beside bottom)<br>
-				<input type="checkbox" class="grey_box" id="0grey_check7" />Trip or fall frequently or bump into objects or people.<br>
-				<input type="checkbox" class="grey_box" id="0grey_check8" />Fail to catch themselves or stop themselves from falling.<br>
-				<input type="checkbox" class="grey_box" id="0grey_check9" />Show poor coordination and appear to be clumsy.<br>
-				<input type="checkbox" class="grey_box" id="0grey_check10" />Seem unaware of his/her own actions or impact on the environment (e.g. didn't notice that he knocked over an object).<br>
+				<table class="tableHeader">
+					<tr align="center"><td style="background-color: #00FF00" align="center" title="Always">A</td><td style="background-color: #FFFF00" title="Several Times a Day">T</td><td style="background-color: #00FFFF" title="Sometimes">S</td><td style="background-color: #FF0000" title="Never">N</td><td></td></tr>
+					
+					<tr><td><input type="radio" name="0grey_check1" value='1'/></td><td><input type="radio" name="0grey_check1" value='0.66'/></td><td><input type="radio" name="0grey_check1" value='0.33'/></td><td><input type="radio" name="0grey_check1" value='0'/></td><td>Apply light pressure on pencil, be aimless when drawing, make light, unidentifiable marks on page.<br></td></tr>
+					
+					<tr><td><input type="radio" name="0grey_check2" value='1'/></td><td><input type="radio" name="0grey_check2" value='0.66'/></td><td><input type="radio" name="0grey_check2" value='0.33'/></td><td><input type="radio" name="0grey_check2" value='0'/></td><td>Let the pencil or object fall out of his or her hand and not notice.<br></td></tr>
+					
+					<tr><td><input type="radio" name="0grey_check3" value='1'/></td><td><input type="radio" name="0grey_check3" value='0.66'/></td><td><input type="radio" name="0grey_check3" value='0.33'/></td><td><input type="radio" name="0grey_check3" value='0'/></td><td>Have difficulty imitating or copying body positions or actions.<br></td></tr>
+					
+					<tr><td><input type="radio" name="0grey_check4" value='1'/></td><td><input type="radio" name="0grey_check4" value='0.66'/></td><td><input type="radio" name="0grey_check4" value='0.33'/></td><td><input type="radio" name="0grey_check4" value='0'/></td><td>Lean on people or furniture.<br></td></tr>
+					
+					<tr><td><input type="radio" name="0grey_check5" value='1'/></td><td><input type="radio" name="0grey_check5" value='0.66'/></td><td><input type="radio" name="0grey_check5" value='0.33'/></td><td><input type="radio" name="0grey_check5" value='0'/></td><td>Slump when sitting / have poor posture/ seem floppy or weak (possibly due to having low muscle tone).<br></td></tr>
+					
+					<tr><td><input type="radio" name="0grey_check6" value='1'/></td><td><input type="radio" name="0grey_check6" value='0.66'/></td><td><input type="radio" name="0grey_check6" value='0.33'/></td><td><input type="radio" name="0grey_check6" value='0'/></td><td>Sit on floor with knees bent and legs in a W-position (feet beside bottom)<br></td></tr>
+					
+					<tr><td><input type="radio" name="0grey_check7" value='1'/></td><td><input type="radio" name="0grey_check7" value='0.66'/></td><td><input type="radio" name="0grey_check7" value='0.33'/></td><td><input type="radio" name="0grey_check7" value='0'/></td><td>Trip or fall frequently or bump into objects or people.<br></td></tr>
+					
+					<tr><td><input type="radio" name="0grey_check8" value='1'/></td><td><input type="radio" name="0grey_check8" value='0.66'/></td><td><input type="radio" name="0grey_check8" value='0.33'/></td><td><input type="radio" name="0grey_check8" value='0'/></td><td>Fail to catch themselves or stop themselves from falling.<br></td></tr>
+					
+					<tr><td><input type="radio" name="0grey_check9" value='1'/></td><td><input type="radio" name="0grey_check9" value='0.66'/></td><td><input type="radio" name="0grey_check9" value='0.33'/></td><td><input type="radio" name="0grey_check9" value='0'/></td><td>Show poor coordination and appear to be clumsy.<br></td></tr>
+					
+					<tr><td><input type="radio" name="0grey_check10" value='1'/></td><td><input type="radio" name="0grey_check10" value='0.66'/></td><td><input type="radio" name="0grey_check10" value='0.33'/></td><td><input type="radio" name="0grey_check10" value='0'/></td><td>Seem unaware of his/her own actions or impact on the environment (e.g. didn't notice that he knocked over an object).<br></td></tr>
+				</table>	
 				<br>
 				<div id="whitezone"><i>Seeking the zone - <br>seeking/craving sensory input to calm down or increase alertness or to maintain a focussed state</i></div>
 				<br>This student may:<br>
@@ -707,6 +721,6 @@
 	<div id="grey" title="Grey state">
 		These are the strategies to handle the Grey state.
 	</div>
-	v2.0.1
+	v2.0.2
   </body>
 </html>
