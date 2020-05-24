@@ -34,7 +34,7 @@
     <script language="javascript" type="text/javascript" src="js/jqplot/jqplot.barRenderer.min.js"></script>
 	<script language="javascript" type="text/javascript" src="js/jqplot/jqplot.pieRenderer.min.js"></script>
 		  
-	<style> <!-- These are meant for the tooltips on 'title' for the accordion headings -->
+	<style>
 	label {
 		display: inline-block; width: 1em;
 	}
@@ -256,10 +256,7 @@
 				axes:{
 					xaxis:{	renderer: $.jqplot.CategoryAxisRenderer,pad: 0
 						  },
-					yaxis:{showTicks: true,
-						   tickOptions: {formatString: '%d%%&nbsp;'},
-						   min:0,
-						   max:100
+					yaxis:{showTicks: false, label:'selected checklist items'
 						 }
 				},
 				axesDefaults: {
@@ -339,6 +336,13 @@
 	
 	});
 	</script>
+	<style> 
+	table, th, td  {
+		border: 0px solid black;
+		vertical-align: top;
+		padding: 4px
+	}
+	</style>
   </head>
   <body>
    <div id="header"></div>
@@ -354,7 +358,7 @@
 	<form id="fullForm">
 	<div id="accordion">
 		<h3 id="acc1" title="Proprioception involves the information we receive from our muscles and joints about our body position and movement in space. There are receptors located within our muscles, joints, ligaments and other connective tissue.  Our proprioceptive system sends information to the cerebellum giving feedback on what our muscles and joints are doing Proprioception is needed for coordinated movement, stability, balance and the ability to imitate and copy actions.">
-		<table><td>LEARNING THROUGH BODY POSITION AND MOVEMENT - PROPRIOCEPTION</td><td></td></tr></table></h3>
+		<table><td>LEARNING THROUGH BODY POSITION AND AWARENESS - PROPRIOCEPTION</td><td></td></tr></table></h3>
 		<div>
 				<div id="redzone"><i>OVER responsive state- <br>over-registering sensory information, responding with sensitivity, avoidance, defensiveness, fight/flight/fright or freeze </i></div>
 				<div style="text-align:left">Note: It is rare to find a person with sensitivity to proprioceptive input. Most people seek it out as a feel-good sensation and regulating tool. <u>Proprioceptive input through heavy muscle work is the most powerful strategy for most students with sensory processing challenges.</u></div>
@@ -379,21 +383,19 @@
 				<table>
 					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
-					<tr><td>5</td><td><input type="radio" name="0grey_check1" value='1'/></td><td><input type="radio" name="0grey_check1" value='0.66'/></td><td><input type="radio" name="0grey_check1" value='0.33'/></td><td><input type="radio" name="0grey_check1" value='0'/></td><td>not notice or seem unaware of objects in their hands (e.g. pencil,block, eating utensils).<br></td></tr>
+					<tr><td>5</td><td><input type="radio" name="0grey_check1" value='1'/></td><td><input type="radio" name="0grey_check1" value='0.66'/></td><td><input type="radio" name="0grey_check1" value='0.33'/></td><td><input type="radio" name="0grey_check1" value='0'/></td><td>not notice or seem unaware of objects in their hands (e.g. pencil, block, eating utensils).<br></td></tr>
 					
-					<tr><td>6</td><td><input type="radio" name="0grey_check2" value='1'/></td><td><input type="radio" name="0grey_check2" value='0.66'/></td><td><input type="radio" name="0grey_check2" value='0.33'/></td><td><input type="radio" name="0grey_check2" value='0'/></td><td>break objects easily or use too much force when manipulating objects or moving their bodies.<br></td></tr>
+					<tr><td>6</td><td><input type="radio" name="0grey_check2" value='1'/></td><td><input type="radio" name="0grey_check2" value='0.66'/></td><td><input type="radio" name="0grey_check2" value='0.33'/></td><td><input type="radio" name="0grey_check2" value='0'/></td><td>break objects easily or use too much force when manipulating objects or moving their own bodies.<br></td></tr>
 					
 					<tr><td>7</td><td><input type="radio" name="0grey_check3" value='1'/></td><td><input type="radio" name="0grey_check3" value='0.66'/></td><td><input type="radio" name="0grey_check3" value='0.33'/></td><td><input type="radio" name="0grey_check3" value='0'/></td><td>lean on people or furniture.<br></td></tr>
 					
-					<tr><td>8</td><td><input type="radio" name="0grey_check4" value='1'/></td><td><input type="radio" name="0grey_check4" value='0.66'/></td><td><input type="radio" name="0grey_check4" value='0.33'/></td><td><input type="radio" name="0grey_check4" value='0'/></td><td>slump when sitting / have poor posture/ seem floppy or weak (possibly due to having low muscle tone).<br></td></tr>
+					<tr><td>8</td><td><input type="radio" name="0grey_check4" value='1'/></td><td><input type="radio" name="0grey_check4" value='0.66'/></td><td><input type="radio" name="0grey_check4" value='0.33'/></td><td><input type="radio" name="0grey_check4" value='0'/></td><td>slump when sitting/have poor posture/seem floppy or weak (possibly due to having low muscle tone).<br></td></tr>
 					
 					<tr><td>9</td><td><input type="radio" name="0grey_check5" value='1'/></td><td><input type="radio" name="0grey_check5" value='0.66'/></td><td><input type="radio" name="0grey_check5" value='0.33'/></td><td><input type="radio" name="0grey_check5" value='0'/></td><td>appear clumsy, often trip over or bump into objects or people.<br></td></tr>
 					
 					<tr><td>10</td><td><input type="radio" name="0grey_check6" value='1'/></td><td><input type="radio" name="0grey_check6" value='0.66'/></td><td><input type="radio" name="0grey_check6" value='0.33'/></td><td><input type="radio" name="0grey_check6" value='0'/></td><td>fail to catch themselves or stop themselves from falling (note:this could also be due to under-developed protective reflexes).<br></td></tr>
 					
-					<tr><td>11</td><td><input type="radio" name="0grey_check7" value='1'/></td><td><input type="radio" name="0grey_check7" value='0.66'/></td><td><input type="radio" name="0grey_check7" value='0.33'/></td><td><input type="radio" name="0grey_check7" value='0'/></td><td>display lack of body awareness (either when stationary or moving) and within their environment (e.g. didn’t notice that he knocked over an object).<br></td></tr>
-					
-									
+					<tr><td>11</td><td><input type="radio" name="0grey_check7" value='1'/></td><td><input type="radio" name="0grey_check7" value='0.66'/></td><td><input type="radio" name="0grey_check7" value='0.33'/></td><td><input type="radio" name="0grey_check7" value='0'/></td><td>display lack of body awareness (either when stationary or moving) and within their environment (e.g. not notice knocking over an object).<br></td></tr>
 					
 				</table>	
 				<br>
@@ -404,9 +406,9 @@
 					
 					<tr><td>12</td><td><input type="radio" name="0white_check1" value='1'/></td><td><input type="radio" name="0white_check1" value='0.66'/></td><td><input type="radio" name="0white_check1" value='0.33'/></td><td><input type="radio" name="0white_check1" value='0'/></td><td>seek out heavy muscle work (climb, push, pull, lift, drag).<br></td></tr>
 
-					<tr><td>13</td><td><input type="radio" name="0white_check2" value='1'/></td><td><input type="radio" name="0white_check2" value='0.66'/></td><td><input type="radio" name="0white_check2" value='0.33'/></td><td><input type="radio" name="0white_check2" value='0'/></td><td>craves movement and input to muscles and joints (e.g. stomp, walk heavily, run, bounce, jump, flaps hands).<br></td></tr>
+					<tr><td>13</td><td><input type="radio" name="0white_check2" value='1'/></td><td><input type="radio" name="0white_check2" value='0.66'/></td><td><input type="radio" name="0white_check2" value='0.33'/></td><td><input type="radio" name="0white_check2" value='0'/></td><td>crave movement and input to muscles and joints (e.g. stomp, walk heavily, run, bounce, jump, flaps hands).<br></td></tr>
 
-					<tr><td>14</td><td><input type="radio" name="0white_check3" value='1'/></td><td><input type="radio" name="0white_check3" value='0.66'/></td><td><input type="radio" name="0white_check3" value='0.33'/></td><td><input type="radio" name="0white_check3" value='0'/></td><td>crave deep pressure touch, squeeze, squash, leaning against others (this can be calming and organising input).<br></td></tr>
+					<tr><td>14</td><td><input type="radio" name="0white_check3" value='1'/></td><td><input type="radio" name="0white_check3" value='0.66'/></td><td><input type="radio" name="0white_check3" value='0.33'/></td><td><input type="radio" name="0white_check3" value='0'/></td><td>crave input through being squeezed, squashed, leaning against others (this can be calming and organising input).<br></td></tr>
 
 					<tr><td>15</td><td><input type="radio" name="0white_check4" value='1'/></td><td><input type="radio" name="0white_check4" value='0.66'/></td><td><input type="radio" name="0white_check4" value='0.33'/></td><td><input type="radio" name="0white_check4" value='0'/></td><td>push, hit, kick, bump, bite, scratch, bang self or objects in order to get more input through the joints and muscles of the body.<br></td></tr>
 
@@ -509,7 +511,7 @@
 					<tr><td>46</td><td><input type="radio" name="1white_check6" value='1'/></td><td><input type="radio" name="1white_check6" value='0.66'/></td><td><input type="radio" name="1white_check6" value='0.33'/></td><td><input type="radio" name="1white_check6" value='0'/></td><td>crave touch, hugs or physical affection.</td></tr>
 
 					<tr><td>47</td><td><input type="radio" name="1white_check7" value='1'/></td><td><input type="radio" name="1white_check7" value='0.66'/></td><td><input type="radio" name="1white_check7" value='0.33'/></td><td><input type="radio" name="1white_check7" value='0'/></td><td>resort to self-injurious behaviours and not seem to find them painful e.g. punch, hit, pinch or bite self or fall to
-floor or head bang). This is very complex and serious and could be for several reasons including craving extreme deep pressure touch because it can release “happy hormones” and help them feel better or release "painkillers" in the brain that can lead to a numbing or euphoric feeling. People with sensory processing challenges can have inaccurate pain perception".</td></tr>
+floor or head bang). This is very complex and serious and could be for several reasons including craving extreme deep pressure touch because it can release “happy neurotransmitters” and help them feel better or release "painkillers" in the brain that can lead to a numbing or euphoric feeling. People with sensory processing challenges can have inaccurate pain perception".</td></tr>
 
 					<tr><td>48</td><td><input type="radio" name="1white_check8" value='1'/></td><td><input type="radio" name="1white_check8" value='0.66'/></td><td><input type="radio" name="1white_check8" value='0.33'/></td><td><input type="radio" name="1white_check8" value='0'/></td><td>frequently bump into people or objects on purpose.</td></tr>
 
@@ -535,7 +537,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<table>
 					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
-					<tr><td>51</td><td><input type="radio" name="2red_check1" value='1'/></td><td><input type="radio" name="2red_check1" value='0.66'/></td><td><input type="radio" name="2red_check1" value='0.33'/></td><td><input type="radio" name="2red_check1" value='0'/></td><td>fear being upside down, tipped sideways, being off balance or when moving backwards (this applies to a student using a wheelchair who may startle when pushed forward or back without warning or at a fast, sudden pace).</td></tr>
+					<tr><td>51</td><td><input type="radio" name="2red_check1" value='1'/></td><td><input type="radio" name="2red_check1" value='0.66'/></td><td><input type="radio" name="2red_check1" value='0.33'/></td><td><input type="radio" name="2red_check1" value='0'/></td><td>fear being upside down, tipped sideways, being off balance or when moving backwards (this also applies to a student using a wheelchair who may startle when pushed forward or back without warning or at a fast, sudden pace).</td></tr>
 					
 					<tr><td>52</td><td><input type="radio" name="2red_check2" value='1'/></td><td><input type="radio" name="2red_check2" value='0.66'/></td><td><input type="radio" name="2red_check2" value='0.33'/></td><td><input type="radio" name="2red_check2" value='0'/></td><td>become anxious when feet are not touching the ground (e.g. sitting on the toilet or chair with feet unsupported).</td></tr>
 
@@ -585,7 +587,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<table>
 					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
-					<tr><td>67</td><td><input type="radio" name="2white_check1" value='1'/></td><td><input type="radio" name="2white_check1" value='0.66'/></td><td><input type="radio" name="2white_check1" value='0.33'/></td><td><input type="radio" name="2white_check1" value='0'/></td><td>crave certain movement experiences (e.g. jumping, swinging, spinning hopping, bouncing, running).</td></tr>
+					<tr><td>67</td><td><input type="radio" name="2white_check1" value='1'/></td><td><input type="radio" name="2white_check1" value='0.66'/></td><td><input type="radio" name="2white_check1" value='0.33'/></td><td><input type="radio" name="2white_check1" value='0'/></td><td>crave certain movement experiences (e.g. jumping, swinging, spinning, hopping, bouncing, running).</td></tr>
 					
 					<tr><td>68</td><td><input type="radio" name="2white_check2" value='1'/></td><td><input type="radio" name="2white_check2" value='0.66'/></td><td><input type="radio" name="2white_check2" value='0.33'/></td><td><input type="radio" name="2white_check2" value='0'/></td><td>seek out gross motor movement and may have a very high tolerance to spinning, jumping, swinging, may not seem to get dizzy.</td></tr>
 
@@ -626,7 +628,7 @@ floor or head bang). This is very complex and serious and could be for several r
 
 					<tr><td>77</td><td><input type="radio" name="3red_check3" value='1'/></td><td><input type="radio" name="3red_check3" value='0.66'/></td><td><input type="radio" name="3red_check3" value='0.33'/></td><td><input type="radio" name="3red_check3" value='0'/></td><td>find it difficult to focus or pay attention in noisy situations.</td></tr>
 
-					<tr><td>78</td><td><input type="radio" name="3red_check4" value='1'/></td><td><input type="radio" name="3red_check4" value='0.66'/></td><td><input type="radio" name="3red_check4" value='0.33'/></td><td><input type="radio" name="3red_check4" value='0'/></td><td>look disengaged or become overwhelmed and tune out sound all together, including the teacher’s voice and therefore take longer time to process auditory information.</td></tr>
+					<tr><td>78</td><td><input type="radio" name="3red_check4" value='1'/></td><td><input type="radio" name="3red_check4" value='0.66'/></td><td><input type="radio" name="3red_check4" value='0.33'/></td><td><input type="radio" name="3red_check4" value='0'/></td><td>look disengaged or become overwhelmed and tune out sound altogether, including the teacher’s voice and therefore take longer time to process auditory information.</td></tr>
 
 					<tr><td>79</td><td><input type="radio" name="3red_check5" value='1'/></td><td><input type="radio" name="3red_check5" value='0.66'/></td><td><input type="radio" name="3red_check5" value='0.33'/></td><td><input type="radio" name="3red_check5" value='0'/></td><td>have fears of certain sounds and anxiously anticipate them. They might show this by blocking ears frequently or “watch the clock” (e.g. microwave or school bell).</td></tr>
 
@@ -639,14 +641,14 @@ floor or head bang). This is very complex and serious and could be for several r
 				</table>
 				<br>
 				<div id="greyzone"><i>UNDER responsive state - <br> low registration of sensory input, slow or low response, "zoned out"</i></div>
-				<div style="text-align:left">NOTE: if you have selected items in OVER responsive state, it’s unlikely that this student will display UNDER-responsive behaviours in auditory processing. The questions below look similar to over-responsive or may apply to over-responsive students but the brain state is different. When you repeat instructions for the over-responsive student they can become more over-whelmed whereas if you repeat instructions in a variety of ways to an under-responsive student they might tune in and notice and be able to process the information.
+				<div style="text-align:left">NOTE: The questions below look similar to over-responsive or may apply to over-responsive students but the brain state is different. When you repeat instructions for the over-responsive student they can become more over-whelmed whereas if you repeat instructions in a variety of ways to an under-responsive student they might tune in and notice and be able to process the information.
 				</div>
 				<br>This student may:<br>
 				
 				<table>
 					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
-					<tr><td>83</td><td><input type="radio" name="3grey_check1" value='1'/></td><td><input type="radio" name="3grey_check1" value='0.66'/></td><td><input type="radio" name="3grey_check1" value='0.33'/></td><td><input type="radio" name="3grey_check1" value='0'/></td><td>take an extended time to process auditory input (may need more time to tune it, notice and actively listen).</td></tr>
+					<tr><td>83</td><td><input type="radio" name="3grey_check1" value='1'/></td><td><input type="radio" name="3grey_check1" value='0.66'/></td><td><input type="radio" name="3grey_check1" value='0.33'/></td><td><input type="radio" name="3grey_check1" value='0'/></td><td>take an extended time to process auditory input (may need more time to tune in, notice and actively listen).</td></tr>
 					
 					<tr><td>84</td><td><input type="radio" name="3grey_check2" value='1'/></td><td><input type="radio" name="3grey_check2" value='0.66'/></td><td><input type="radio" name="3grey_check2" value='0.33'/></td><td><input type="radio" name="3grey_check2" value='0'/></td><td>need words or instructions repeated in a variety of ways in order to get their attention (this is different to over-responsive students who will become more over-whelmed or tune out further if you repeat instructions over and over again).</td></tr>
 
@@ -699,7 +701,7 @@ floor or head bang). This is very complex and serious and could be for several r
 
 					<tr><td>96</td><td><input type="radio" name="4red_check5" value='1'/></td><td><input type="radio" name="4red_check5" value='0.66'/></td><td><input type="radio" name="4red_check5" value='0.33'/></td><td><input type="radio" name="4red_check5" value='0'/></td><td>be sensitive to certain types of light or overly notice changes in light (e.g. moving from indoors to outdoors or through hallways).</td></tr>
 
-					<tr><td>97</td><td><input type="radio" name="4red_check6" value='1'/></td><td><input type="radio" name="4red_check6" value='0.66'/></td><td><input type="radio" name="4red_check6" value='0.33'/></td><td><input type="radio" name="4red_check6" value='0'/></td><td>avoid going out into sunlight,cover eyes, squint or shut eyes.</td></tr>
+					<tr><td>97</td><td><input type="radio" name="4red_check6" value='1'/></td><td><input type="radio" name="4red_check6" value='0.66'/></td><td><input type="radio" name="4red_check6" value='0.33'/></td><td><input type="radio" name="4red_check6" value='0'/></td><td>avoid going out into sunlight, cover eyes, squint or shut eyes.</td></tr>
 
 					<tr><td>98</td><td><input type="radio" name="4red_check7" value='1'/></td><td><input type="radio" name="4red_check7" value='0.66'/></td><td><input type="radio" name="4red_check7" value='0.33'/></td><td><input type="radio" name="4red_check7" value='0'/></td><td>look from the corner of his/her eye or block part of their visual field with hand or item (perhaps to fix and focus in on image and/or block out other visual sensory information).</td></tr>
 
@@ -757,12 +759,12 @@ floor or head bang). This is very complex and serious and could be for several r
 
 					<tr><td>115</td><td><input type="radio" name="4white_check8" value='1'/></td><td><input type="radio" name="4white_check8" value='0.66'/></td><td><input type="radio" name="4white_check8" value='0.33'/></td><td><input type="radio" name="4white_check8" value='0'/></td><td>look for or be distracted by own reflection or play with own shadow (this could also be giving the student more information about their body position and movement).</td></tr>
 
-					<tr><td>116</td><td><input type="radio" name="4white_check9" value='1'/></td><td><input type="radio" name="4white_check9" value='0.66'/></td><td><input type="radio" name="4white_check9" value='0.33'/></td><td><input type="radio" name="4white_check9" value='0'/></td><td>bring items close to eyes, stare closely at the TV or computer screen or looks through fingers.</td></tr>
+					<tr><td>116</td><td><input type="radio" name="4white_check9" value='1'/></td><td><input type="radio" name="4white_check9" value='0.66'/></td><td><input type="radio" name="4white_check9" value='0.33'/></td><td><input type="radio" name="4white_check9" value='0'/></td><td>bring items close to eyes, stare closely at the TV or computer screen or look through fingers.</td></tr>
 
 					
 				</table>
 				
-				<div style="text-align:left">Note: difficulty with eye contact is in all 3 categories because it is a complex action that involves integration and modulation of the senses and regulation of alertness levels as well as social-emotional development.
+				<div style="text-align:left">Note: students that experience visual processing challenges may have difficulty with eye contact. This is a complex action that involves integration and modulation of the senses and regulation of alertness levels as well as social-emotional development.
 				</div>
 				<br>
 				<div id="bluenote">This checklist is a guide for teachers. Please consult an Occupational Therapist specialising in sensory processing challenges for formal assessment and intervention of your students with complex needs.</div>
@@ -775,7 +777,7 @@ floor or head bang). This is very complex and serious and could be for several r
 		
 		The Olfactory system senses and processes smells. When we notice a smell, information is taken to the amygdala in our brains through the olfactory nerve. Unlike the other sensory systems that transport nerve impulses through the spinal cord and the brain stem, the olfactory nerve attaches directly to the forebrain, in particular the olfactory bulb located on the frontal lobe, just above the nose (Crossman & Neary, 2010). Olfactory information further travels to the limbic system, which is responsible for our emotions, behaviour and memories (SPD Australia, 2010). The use of fragrances can therefore be powerful in altering moods, emotions and alertness levels."><table><tr><td>LEARNING THROUGH TASTE - GUSTATORY PROCESSING  AND LEARNING THROUGH SMELL - OLFACTORY PROCESSING</td></tr></table></h3>
 		<div>
-				<div id="redzone"><i>OVER responsive state- <br>over-registering sensory information, responding with sensitivity, avoiding, defensiveness, fight/flight/fright or freeze</i></div>
+				<div id="redzone"><i>OVER responsive state- <br>over-registering sensory information, responding with sensitivity, avoidance, defensiveness, fight/flight/fright or freeze</i></div>
 				<br>This student may:<br>
 				
 				<table>
@@ -805,7 +807,7 @@ floor or head bang). This is very complex and serious and could be for several r
 					
 					<tr><td>124</td><td><input type="radio" name="5grey_check2" value='1'/></td><td><input type="radio" name="5grey_check2" value='0.66'/></td><td><input type="radio" name="5grey_check2" value='0.33'/></td><td><input type="radio" name="5grey_check2" value='0'/></td><td>seem to "forget" to chew or swallow.</td></tr>
 
-					<tr><td>125</td><td><input type="radio" name="5grey_check3" value='1'/></td><td><input type="radio" name="5grey_check3" value='0.66'/></td><td><input type="radio" name="5grey_check3" value='0.33'/></td><td><input type="radio" name="5grey_check3" value='0'/></td><td>not notice strong flavours( e.g. be able to eat chilly or salty food more than others).</td></tr>
+					<tr><td>125</td><td><input type="radio" name="5grey_check3" value='1'/></td><td><input type="radio" name="5grey_check3" value='0.66'/></td><td><input type="radio" name="5grey_check3" value='0.33'/></td><td><input type="radio" name="5grey_check3" value='0'/></td><td>not notice strong flavours (e.g. be able to eat chilly or salty food more than others).</td></tr>
 
 					<tr><td>126</td><td><input type="radio" name="5grey_check4" value='1'/></td><td><input type="radio" name="5grey_check4" value='0.66'/></td><td><input type="radio" name="5grey_check4" value='0.33'/></td><td><input type="radio" name="5grey_check4" value='0'/></td><td>have poor saliva control and/or drool (due to poor tactile sensory feedback around mouth and/or low muscle tone).</td></tr>
 					
@@ -821,7 +823,7 @@ floor or head bang). This is very complex and serious and could be for several r
 					
 					<tr><td>128</td><td><input type="radio" name="5white_check1" value='1'/></td><td><input type="radio" name="5white_check1" value='0.66'/></td><td><input type="radio" name="5white_check1" value='0.33'/></td><td><input type="radio" name="5white_check1" value='0'/></td><td>stuff mouth with food (this could be for better oral-motor control through enhanced sensory feedback -it's easier to control a large piece of food rather than a tiny crumb in your mouth).</td></tr>
 					
-					<tr><td>129</td><td><input type="radio" name="5white_check2" value='1'/></td><td><input type="radio" name="5white_check2" value='0.66'/></td><td><input type="radio" name="5white_check2" value='0.33'/></td><td><input type="radio" name="5white_check2" value='0'/></td><td>frequently seek or crave food or something in their mouth (e.g. may chew on collar, clothing).</td></tr>
+					<tr><td>129</td><td><input type="radio" name="5white_check2" value='1'/></td><td><input type="radio" name="5white_check2" value='0.66'/></td><td><input type="radio" name="5white_check2" value='0.33'/></td><td><input type="radio" name="5white_check2" value='0'/></td><td>frequently seek or crave food or something in their mouth (e.g. may chew on collar, clothing, nails, or item they are holding).</td></tr>
 
 					<tr><td>130</td><td><input type="radio" name="5white_check3" value='1'/></td><td><input type="radio" name="5white_check3" value='0.66'/></td><td><input type="radio" name="5white_check3" value='0.33'/></td><td><input type="radio" name="5white_check3" value='0'/></td><td>seek to eat/drink more when they should be full.</td></tr>
 
@@ -829,7 +831,7 @@ floor or head bang). This is very complex and serious and could be for several r
 
 					<tr><td>132</td><td><input type="radio" name="5white_check5" value='1'/></td><td><input type="radio" name="5white_check5" value='0.66'/></td><td><input type="radio" name="5white_check5" value='0.33'/></td><td><input type="radio" name="5white_check5" value='0'/></td><td>seek out some smells by sniffing, notices smells more than others.</td></tr>
 
-					<tr><td>133</td><td><input type="radio" name="5white_check6" value='1'/></td><td><input type="radio" name="5white_check6" value='0.66'/></td><td><input type="radio" name="5white_check6" value='0.33'/></td><td><input type="radio" name="5white_check6" value='0'/></td><td>may be drawn to certain smells more than others (e.g. body odour,faeces, urine, shampoo).</td></tr>
+					<tr><td>133</td><td><input type="radio" name="5white_check6" value='1'/></td><td><input type="radio" name="5white_check6" value='0.66'/></td><td><input type="radio" name="5white_check6" value='0.33'/></td><td><input type="radio" name="5white_check6" value='0'/></td><td>may be drawn to certain smells more than others (e.g. body odour, faeces, urine, shampoo).</td></tr>
 
 					<tr><td>134</td><td><input type="radio" name="5white_check7" value='1'/></td><td><input type="radio" name="5white_check7" value='0.66'/></td><td><input type="radio" name="5white_check7" value='0.33'/></td><td><input type="radio" name="5white_check7" value='0'/></td><td>crave eating particular flavours or textures (this could be to alert themselves or because it brings them pleasure).</td></tr>
 					
@@ -859,18 +861,18 @@ floor or head bang). This is very complex and serious and could be for several r
 		<div class="pagebreak"> </div>
 		<table style="text-align: center; border-spacing: 0px 20px">
 			<tr>
-				<td>PROPRIOCEPTION – position and movement of the body  <br><div id="chart2" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></td>
+				<td>PROPRIOCEPTION – position and awareness of the body  <br><div id="chart2" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></td>
 				<td>TACTILE PROCESSING - touch<br><div id="chart3" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;">
 				<div class="pagebreak"> </div><br></td>
 			</tr>
 			<tr>
-				<td>VESTIBULAR PROCESSING - position and movement of the head<br><div id="chart4" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></td>
+				<td>VESTIBULAR PROCESSING - movement<br><div id="chart4" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></td>
 				<td>AUDITORY PROCESSING - sound<br><div id="chart5" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;">
 				<div class="pagebreak"> </div><br></td>
 			</tr>
 			<tr>
 				<td>VISUAL PROCESSING - visual information<br><div id="chart6" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></td>
-				<td>OLFACTORY PROCESSING - smell and taste<br><div id="chart7" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;">
+				<td>GUSTATORY and OLFACTORY PROCESSING - smell and taste<br><div id="chart7" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;">
 				<div class="pagebreak"> </div><br></td>
 			</tr>
 			<tr>
