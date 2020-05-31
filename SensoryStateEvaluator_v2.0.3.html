@@ -370,7 +370,7 @@
 		
 		$("#clear").click(function() {
 			$('#fullForm')[0].reset();
-			$.jqplot('chart1', [line1], chartOptions).destroy();
+			//$.jqplot('chart1', [line1], chartOptions).destroy();
 			$.jqplot('chart2', [acc1Line1], chartOptions).destroy();
 			$.jqplot('chart3', [acc1Line2], chartOptions).destroy();
 			$.jqplot('chart4', [acc1Line3], chartOptions).destroy();
@@ -393,6 +393,7 @@
    <div id="header"></div>
    <div id="body">
 	<div id="heading"><h1>IN THE ZONE FOR LEARNING STUDENT RESPONSE CHECKLIST</h1><hr><h2>A sensory lens to help educators consider how the processing of sensory information impacts your student’s level of alertness, function, participation and learning</h2><hr>
+	<form id="fullForm">
 	<table style="border-spacing: 0px 10px">
 	<tr><td style="text-align:right"><b>Name of Student </td><td><input type="text" id="name" style="width:420px;"></b></td></tr>
 	<tr><td style="text-align:right"><b>Date of Birth </td><td><input type="text" id="name" style="width:420px;"></b></td></tr>
@@ -400,7 +401,7 @@
 	<tr><td style="text-align:right"><b>Date of Completion </td><td><input type="text" id="name" style="width:420px;"></b></td></tr>
 	</table>
 	</div>
-	<form id="fullForm">
+	
 	<div id="accordion">
 		<h3 id="acc1" title="Proprioception is a sense that provides information from our muscles and joints about our body position and movement in space. Receptors located within our muscles, joints, ligaments and other connective tissue send information to the cerebellum (movement processing part of the brain) to give feedback on what our muscles and joints are doing. Proprioception is needed for coordinated movement, stability, balance and the ability to imitate and copy actions.">
 		<table><td>LEARNING THROUGH BODY POSITION AND AWARENESS - PROPRIOCEPTION</td><td></td></tr></table></h3>
@@ -895,7 +896,7 @@ floor or head bang). This is very complex and serious and could be for several r
 		</div>	
     </div>
 	<br><b>Overall Notes <br>&nbsp;<textarea id="notes" cols="80" rows="10"></textarea> </b><br><br>
-	</form>
+	
 		<div id="buttonPanel">
 		<input type="button" id="evaluate" value="Evaluate" style="font-size: 20px"/>	
 		<input type="button" id="print" value="Print" style="font-size: 20px"/>
@@ -929,6 +930,7 @@ floor or head bang). This is very complex and serious and could be for several r
 		<!--div id="logo"><img src="autismcentrallogo.jpg" height="90" width="180"/><img src="logo.jpg" height="80" width="180"/></div-->
 		<h3>Thank you for completing the ITZ Student Response Checklist. These graphs represent the responses selected for your student.
 		Click on each column for the strategy tool for Over-responsive, Under-responsive or Seeking the zone.</h3>
+		</form>
 	</div>
 	
 	<div id="dialog" title="Zones based on state">
