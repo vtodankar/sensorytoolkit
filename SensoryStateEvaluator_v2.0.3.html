@@ -327,56 +327,43 @@
 				if(this.name.substring(1,5)=='grey') {grey=grey+parseFloat(this.value);greys[this.name.substring(0,1)]=greys[this.name.substring(0,1)]+parseFloat(this.value);}
 			});
 			
-			for(i=0;i<6;i++){
-				divName='#'+i+'s'+'0';
-				$(divName).html(desc(reds[i]/redCounts[i]));
-				divName='#'+i+'s'+'1';
-				$(divName).html(desc(greys[i]/greyCounts[i]));
-				divName='#'+i+'s'+'2';
-				$(divName).html(desc(whites[i]/whiteCounts[i]));
-				}
 
 			//line1 = [red*100/redTotal,grey*100/greyTotal, white*100/whiteTotal];
 			//$.jqplot('chart1', [line1], chartOptions).replot();
 			
-			$('#desc1').html(scoring(red/redTotal,grey/greyTotal,white/whiteTotal));
-			
+		
 			acc1Line1 = [reds[0]*100/redCounts[0], greys[0]*100/greyCounts[0], whites[0]*100/whiteCounts[0]];
 			$.jqplot('chart2', [acc1Line1], chartOptions).replot();
-			$('#desc2').html(scoring(reds[0]/redCounts[0],greys[0]/greyCounts[0],whites[0]/whiteCounts[0]));
-			//$('#0s0').html(desc(reds[0]/redCounts[0]));
 			
 			
 			acc1Line2 = [reds[1]*100/redCounts[1], greys[1]*100/greyCounts[1], whites[1]*100/whiteCounts[1]];
 			$.jqplot('chart3', [acc1Line2], chartOptions).replot();
-			$('#desc3').html(scoring(reds[1]/redCounts[1],greys[1]/greyCounts[1],whites[1]/whiteCounts[1]));
 			
 			acc1Line3 = [reds[2]*100/redCounts[2], greys[2]*100/greyCounts[2], whites[2]*100/whiteCounts[2]];
 			$.jqplot('chart4', [acc1Line3], chartOptions).replot();
-			$('#desc4').html(scoring(reds[2]/redCounts[2],greys[2]/greyCounts[2],whites[2]/whiteCounts[2]));
 			
 			acc1Line4 = [reds[3]*100/redCounts[3], greys[3]*100/greyCounts[3], whites[3]*100/whiteCounts[3]];
 			$.jqplot('chart5', [acc1Line4], chartOptions).replot();
-			$('#desc5').html(scoring(reds[3]/redCounts[3],greys[3]/greyCounts[3],whites[3]/whiteCounts[3]));
 			
 			acc1Line5 = [reds[4]*100/redCounts[4], greys[4]*100/greyCounts[4], whites[4]*100/whiteCounts[4]];
 			$.jqplot('chart6', [acc1Line5], chartOptions).replot();
-			$('#desc6').html(scoring(reds[4]/redCounts[4],greys[4]/greyCounts[4],whites[4]/whiteCounts[4]));
 			
 			acc1Line6 = [reds[5]*100/redCounts[5], greys[5]*100/greyCounts[5], whites[5]*100/whiteCounts[5]];
 			$.jqplot('chart7', [acc1Line6], chartOptions).replot();
-			$('#desc7').html(scoring(reds[5]/redCounts[5],greys[5]/greyCounts[5],whites[5]/whiteCounts[5]));
 			
 			if(red>0) $("#red").dialog("open");
 		});
-		
-		$('#chart1').bind('jqplotDataClick', 
-            function (ev, seriesIndex, pointIndex, data) {
-                if(pointIndex == 0) window.open("Red.Zone.pdf","red")//$("#red").dialog("open");
-				if(pointIndex == 1) window.open("Grey.Zone.pdf","grey")//$("#grey").dialog("open");
-				if(pointIndex == 2) window.open("White.Zone.pdf","white")//$("#white").dialog("open");
-            }
-        );
+		for(i=2;i<8;i++)
+		{
+			divText='#chart'+i;
+			$(divText).bind('jqplotDataClick', 
+				function (ev, seriesIndex, pointIndex, data) {
+					if(pointIndex == 0) window.open("Red.Zone.pdf","red")//$("#red").dialog("open");
+					if(pointIndex == 1) window.open("Grey.Zone.pdf","grey")//$("#grey").dialog("open");
+					if(pointIndex == 2) window.open("White.Zone.pdf","white")//$("#white").dialog("open");
+				}
+			);
+		}
 		$("#print").click(function() {
 			window.print();
 		});
@@ -405,7 +392,7 @@
   <body>
    <div id="header"></div>
    <div id="body">
-	<div id="heading"><h1>IN THE ZONE FOR LEARNING STUDENT RESPONSE CHECKLIST AND STRATEGY TOOL</h1><hr><h2>A sensory lens to help educators consider how the processing of sensory information impacts your student’s level of alertness, function,participation and learning</h2><hr>
+	<div id="heading"><h1>IN THE ZONE FOR LEARNING STUDENT RESPONSE CHECKLIST</h1><hr><h2>A sensory lens to help educators consider how the processing of sensory information impacts your student’s level of alertness, function, participation and learning</h2><hr>
 	<table style="border-spacing: 0px 10px">
 	<tr><td style="text-align:right"><b>Name of Student </td><td><input type="text" id="name" style="width:420px;"></b></td></tr>
 	<tr><td style="text-align:right"><b>Date of Birth </td><td><input type="text" id="name" style="width:420px;"></b></td></tr>
@@ -415,14 +402,14 @@
 	</div>
 	<form id="fullForm">
 	<div id="accordion">
-		<h3 id="acc1" title="Proprioception involves the information we receive from our muscles and joints about our body position and movement in space. There are receptors located within our muscles, joints, ligaments and other connective tissue.  Our proprioceptive system sends information to the cerebellum giving feedback on what our muscles and joints are doing Proprioception is needed for coordinated movement, stability, balance and the ability to imitate and copy actions.">
+		<h3 id="acc1" title="Proprioception is a sense that provides information from our muscles and joints about our body position and movement in space. Receptors located within our muscles, joints, ligaments and other connective tissue send information to the cerebellum (movement processing part of the brain) to give feedback on what our muscles and joints are doing. Proprioception is needed for coordinated movement, stability, balance and the ability to imitate and copy actions.">
 		<table><td>LEARNING THROUGH BODY POSITION AND AWARENESS - PROPRIOCEPTION</td><td></td></tr></table></h3>
 		<div>
 				<div id="redzone"><i>OVER responsive state- <br>over-registering sensory information, responding with sensitivity, avoidance, defensiveness, fight/flight/fright or freeze </i></div>
 				<div style="text-align:left">Note: It is rare to find a person with sensitivity to proprioceptive input. Most people seek it out as a feel-good sensation and regulating tool. <u>Proprioceptive input through heavy muscle work is the most powerful strategy for most students with sensory processing challenges.</u></div>
 				<br>This student may:<br>
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>1</td><td><input type="radio" name="0red_check1" value='1'/></td><td><input type="radio" name="0red_check1" value='0.66'/></td><td><input type="radio" name="0red_check1" value='0.33'/></td><td><input type="radio" name="0red_check1" value='0'/></td><td>display discomfort or avoid weight-bearing positions e.g. standing, kneeling.<br></td></tr>
 					
@@ -439,7 +426,7 @@
 				<div style="text-align:left">Note: Your student's responses in this category may be due to poor strength or coordination of movement. Tick the boxes that apply below and refer to the Meaningful Movement Module for more information.</div>
 				<br>This student may:<br>
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>5</td><td><input type="radio" name="0grey_check1" value='1'/></td><td><input type="radio" name="0grey_check1" value='0.66'/></td><td><input type="radio" name="0grey_check1" value='0.33'/></td><td><input type="radio" name="0grey_check1" value='0'/></td><td>not notice or seem unaware of objects in their hands (e.g. pencil, block, eating utensils).<br></td></tr>
 					
@@ -460,7 +447,7 @@
 				<div id="whitezone"><i>Seeking the zone - <br>seeking/craving sensory input to calm down or increase alertness or to maintain a focussed state</i></div>
 				<br>This student may:<br>
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>12</td><td><input type="radio" name="0white_check1" value='1'/></td><td><input type="radio" name="0white_check1" value='0.66'/></td><td><input type="radio" name="0white_check1" value='0.33'/></td><td><input type="radio" name="0white_check1" value='0'/></td><td>seek out heavy muscle work (climb, push, pull, lift, drag).<br></td></tr>
 
@@ -492,15 +479,13 @@
 		</div>
 		
 		
-		<h3 title="Our tactile system involves the information we receive through our skin. It includes two roles: a discriminative role and a protective role.
-		Discrimination includes fine touch, pressure and vibrations. Discriminative touch allows us to determine the shape and feel of an object without first seeing what the object looks like.
-		The protective role provides information such as the perception of temperature and pain and also the sensations of an itch or tickle (Sensory Processing Disorder (SPD) Australia, 2010). Some students may have difficulty discriminating tactile input (e.g. rough, smooth, silky) and may respond with sensitivity or avoidance or not notice. Some students are sensitive to touch or tactile input because their brain responds in fright/flight/fight - over-responsive protective system. Some students seek out tactile input (e.g. touching different textures) as it gives them information, joy or satisfies a craving."><table><tr><td>LEARNING THROUGH TOUCH -TACTILE PROCESSING</td></tr></table></h3>
+		<h3 title="Our tactile sense provides touch information from our body (from our skin and also inside our mouth).  This sense has two roles: a discriminative role and a protective role.Tactile discrimination provides information about the type of touch and the shape of the object (e.g. a rough block of wood) and where we can feel the input (in my hand).  Some students experience challenges in tactile discrimination. The tactile system also informs us about temperature, pain, deep pressure, vibration, light touch etc.Some students have an over-active protective response to tactile input and may flinch or pull away in defensiveness or sensitivity while another student can find the same input soothing or pleasant."><table><tr><td>LEARNING THROUGH TOUCH -TACTILE PROCESSING</td></tr></table></h3>
 		<div>
 				<div id="redzone"><i>OVER responsive state- <br>over-registering sensory information, responding with sensitivity, avoidance, defensiveness, fight/flight/fright or freeze</i></div>
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>22</td><td><input type="radio" name="1red_check1" value='1'/></td><td><input type="radio" name="1red_check1" value='0.66'/></td><td><input type="radio" name="1red_check1" value='0.33'/></td><td><input type="radio" name="1red_check1" value='0'/></td><td>avoid touching different textures or participating in activities such as craft, messy play, cooking or gardening, be wary, hesitant or distressed.</td></tr>
 					
@@ -528,7 +513,7 @@
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>32</td><td><input type="radio" name="1grey_check1" value='1'/></td><td><input type="radio" name="1grey_check1" value='0.66'/></td><td><input type="radio" name="1grey_check1" value='0.33'/></td><td><input type="radio" name="1grey_check1" value='0'/></td><td>be slow to process tactile information or touch cues.</td></tr>
 					
@@ -554,7 +539,7 @@
 				<br>This student may:<br>								
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>41</td><td><input type="radio" name="1white_check1" value='1'/></td><td><input type="radio" name="1white_check1" value='0.66'/></td><td><input type="radio" name="1white_check1" value='0.33'/></td><td><input type="radio" name="1white_check1" value='0'/></td><td>have a strong need to touch furniture, walls, objects, people.</td></tr>
 					
@@ -587,13 +572,13 @@ floor or head bang). This is very complex and serious and could be for several r
 				
 		</div>
 		
-		<h3 title="Vestibular processing refers to movement, balance sensations and orientation in space. These are the combined functions of the semicircular canals of the inner ear, basal ganglia, cerebellum and the cerebral motor cortex. This system regulates the feelings of motion such as balance, acceleration, deceleration, starts and stops, direction, rhythm, and creates the stores patters of movement? (Texas School for the Blind and Visually Impaired, 2010). The hair cells inside the semicircular canals are activated according to position and movement of the head in relation to gravity. Vestibular processing and auditory processing are closely related as they are one apparatus and share nerves and blood vessels. For example, individuals with inner ear infections can often experience difficulties with balance and some students with auditory processing issues often seek out vestibular movement. The vestibular system highly influences alertness levels and combines with the proprioceptive and visual systems to provide an understanding of the body in space and the movement of the head in relation to the body and the environment. Many of our students have challenges with vestibular information processing. This needs to be addressed carefully and urgently as accurate vestibular processing is essential for function in daily life."><table><tr><td>LEARNING THROUGH MOVEMENT -VESTIBULAR PROCESSING</td></tr></table></h3>
+		<h3 title="The vestibular sense processes movement information and tells us about how slow/fast we are moving, in what direction and where we are in relation to the ground. This sense is located in the inner ear next to the cochlear and is called the vestibule. The processing of movement and sound are closely linked as the vestibular system and the auditory system are connected and share nerves and blood vessels. The vestibular system highly influences alertness levels and combines with the proprioceptive and visual systems to provide an understanding of the body in space and the movement of the head in relation to the body and the environment."><table><tr><td>LEARNING THROUGH MOVEMENT -VESTIBULAR PROCESSING</td></tr></table></h3>
 		<div>
 				<div id="redzone"><i>OVER responsive state- <br>over-registering sensory information, responding with sensitivity, avoidance, defensiveness, fight/flight/fright or freeze</i></div>
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>51</td><td><input type="radio" name="2red_check1" value='1'/></td><td><input type="radio" name="2red_check1" value='0.66'/></td><td><input type="radio" name="2red_check1" value='0.33'/></td><td><input type="radio" name="2red_check1" value='0'/></td><td>fear being upside down, tipped sideways, being off balance or when moving backwards (this also applies to a student using a wheelchair who may startle when pushed forward or back without warning or at a fast, sudden pace).</td></tr>
 					
@@ -622,7 +607,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>61</td><td><input type="radio" name="2grey_check1" value='1'/></td><td><input type="radio" name="2grey_check1" value='0.66'/></td><td><input type="radio" name="2grey_check1" value='0.33'/></td><td><input type="radio" name="2grey_check1" value='0'/></td><td>appear not to feel dizzy (e.g. Can spin and swing more than others without being unsteady after or showing rapid eye movement after (Post Rotary Nystagmus)). </td></tr>
 					
@@ -643,7 +628,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>67</td><td><input type="radio" name="2white_check1" value='1'/></td><td><input type="radio" name="2white_check1" value='0.66'/></td><td><input type="radio" name="2white_check1" value='0.33'/></td><td><input type="radio" name="2white_check1" value='0'/></td><td>crave certain movement experiences (e.g. jumping, swinging, spinning, hopping, bouncing, running).</td></tr>
 					
@@ -669,7 +654,7 @@ floor or head bang). This is very complex and serious and could be for several r
 								
 		</div>
 		
-		<h3 title="Our auditory system involves the outer ear, the middle ear and the inner ear. The outer ear, or pinna, collects sounds from the environment, which travels through the ear canal into the middle ear. The middle ear changes the sounds into vibrations, causing the eardrum to vibrate, and to move tiny bones called ossicles, which help deliver the vibrations to the inner ear (Crossman & Neary, 2010). These vibrations enter the cochlea, a part of the inner ear, causing tiny hairs within the cochlear to move. This creates nerve signals that are sent to the brain via the cochlear fibres of the vestibulocochlear nerve (Crossman & Neary, 2010). Auditory and vestibular movement processing are closely linked (as seen in music and movement). Many of our students have audiology tests that show normal hearing; however the problem lies in their brain's processing of auditory information not the acuity of their hearing. "><table><tr><td>LEARNING THROUGH SOUND -AUDITORY PROCESSING</td></tr></table></h3>
+		<h3 title="Our auditory system involves the outer ear, the middle ear and the inner ear. The outer ear collects the sounds from environment. When passing through the middle ear, sounds are converted into vibrations which travel into the cochlear within the inner ear. This auditory information is then transmitted to the brain. Many students have no issue with ‘hearing’ on audiology tests; however, they may present with difficulties making sense of the auditory information their brain receives."><table><tr><td>LEARNING THROUGH SOUND -AUDITORY PROCESSING</td></tr></table></h3>
 		<div>
 				<div id="redzone"><i>OVER responsive state- <br>over-registering sensory information, responding with sensitivity, avoidance, defensiveness, fight/flight/fright or freeze</i></div>
 				<div style="text-align:left">Please note: sound travels through air and bounces off surfaces, changes and distorts. Some students in high alert can over register all these sounds and become sensitive to sound. <br>
@@ -678,7 +663,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>75</td><td><input type="radio" name="3red_check1" value='1'/></td><td><input type="radio" name="3red_check1" value='0.66'/></td><td><input type="radio" name="3red_check1" value='0.33'/></td><td><input type="radio" name="3red_check1" value='0'/></td><td>experience sensitivity to sound, startle easily or block ears from loud or unexpected noise (e.g. another student vocalising, school bell, fire alarm, microphone feedback, door slamming).</td></tr>
 					
@@ -704,7 +689,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>83</td><td><input type="radio" name="3grey_check1" value='1'/></td><td><input type="radio" name="3grey_check1" value='0.66'/></td><td><input type="radio" name="3grey_check1" value='0.33'/></td><td><input type="radio" name="3grey_check1" value='0'/></td><td>take an extended time to process auditory input (may need more time to tune in, notice and actively listen).</td></tr>
 					
@@ -721,7 +706,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>87</td><td><input type="radio" name="3white_check1" value='1'/></td><td><input type="radio" name="3white_check1" value='0.66'/></td><td><input type="radio" name="3white_check1" value='0.33'/></td><td><input type="radio" name="3white_check1" value='0'/></td><td>make noise with objects (e.g. bangs, throws, taps objects).</td></tr>
 					
@@ -741,13 +726,13 @@ floor or head bang). This is very complex and serious and could be for several r
 				
 		</div>
 		
-		<h3 title="Vision begins when light rays enter the eye through our cornea. The cornea and our lens channel these rays to the retina, which is at the back of the eye (Vision Australia, 2012). Within the retina, we have photoreceptor cells, which turn the light rays into nerve impulses. These impulses carry visual information to the occipital lobe of the cerebral hemisphere in our brain, via the optic nerve (Crossman & Neary, 2010). This is where visual perception and processing occurs. Many of our students have vision tests that show normal eye-sight with no need for corrective lenses, however the problem lies in their brain's ability to process visual sensory information not the acuity of their eyes. Some students have benefitted from wearing tinted lenses (such as Irlen lenses) which help to manage the distortions caused by their visual processing system. Visual motor integration, eye-hand coordination, eye-foot coordination are dependent on accurate processing of visual sensory information."><table><tr><td>LEARNING THROUGH SIGHT -VISUAL PROCESSING</td></tr></table></h3>
+		<h3 title="Visual processing occurs when information from the eyes are sent to the brain for interpretation. Many children have perfect vision based on eye tests, but will present with difficulties tuning in and out of relevant visual information. When this occurs students may present with difficulties coping in visually busy environments and display behaviours that may be related to visual processing challenges."><table><tr><td>LEARNING THROUGH SIGHT -VISUAL PROCESSING</td></tr></table></h3>
 		<div>
 				<div id="redzone"><i>OVER responsive state- <br>over-registering sensory information, responding with sensitivity, avoidance, defensiveness, fight/flight/fright or freeze</i></div>
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>92</td><td><input type="radio" name="4red_check1" value='1'/></td><td><input type="radio" name="4red_check1" value='0.66'/></td><td><input type="radio" name="4red_check1" value='0.33'/></td><td><input type="radio" name="4red_check1" value='0'/></td><td>over-notice/be distracted by visual input, e.g. movement of other students, leaves moving in the breeze, notice small changes to the environment or when things are out of place.</td></tr>
 					
@@ -776,7 +761,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>101</td><td><input type="radio" name="4grey_check1" value='1'/></td><td><input type="radio" name="4grey_check1" value='0.66'/></td><td><input type="radio" name="4grey_check1" value='0.33'/></td><td><input type="radio" name="4grey_check1" value='0'/></td><td>not seem to "notice" or know where to look.</td></tr>
 					
@@ -799,7 +784,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>108</td><td><input type="radio" name="4white_check1" value='1'/></td><td><input type="radio" name="4white_check1" value='0.66'/></td><td><input type="radio" name="4white_check1" value='0.33'/></td><td><input type="radio" name="4white_check1" value='0'/></td><td>intently watch spinning or moving objects (this can also provide vestibular input and a sense of moving even when sitting or standing still).</td></tr>
 					
@@ -831,15 +816,15 @@ floor or head bang). This is very complex and serious and could be for several r
 				
 		</div>		
 		
-		<h3 title="The Gustatory System involves receptors within our taste buds in our tongue, mouth and throat that transmit information to the brain, where specific tastes are identified (SPD Australia, 2010). There are four different tastes that our taste buds identify and send our brain information about: sweet, sour, bitter and salt. These tastes, as well as the texture and temperature of foods, combine with our olfactory system to perceive taste and flavour. Many students impose restrictions on their own diets due to sensitivities and fears in this system. This is a primal protective mechanism that may be due to a metabolic issue, allergy or intolerance, poor digestion (e.g. chronic constipation), challenges with chewing and processing food or liquid or distortions in the perception of taste and texture, e.g. some people describe a constant metallic taste in their mouth due to an imbalance of minerals in their metabolic system.
+		<h3 title="The Gustatory sense has receptors within our taste buds in our tongue, mouth and throat that send information to the brain to identify tastes These tastes include sweet, sour, bitter and salty. Taste, as well as the texture and temperature, combine with our olfactory system to perceive the sensation of food in our mouths. Many students impose restrictions on their own diets due to sensitivities and fears in this system. This is a primal protective mechanism that may be due to a metabolic issue, allergy or intolerance, poor digestion (e.g. chronic constipation), challenges with chewing and processing food or liquid or distortions in the perception of taste and texture.
 		
-		The Olfactory system senses and processes smells. When we notice a smell, information is taken to the amygdala in our brains through the olfactory nerve. Unlike the other sensory systems that transport nerve impulses through the spinal cord and the brain stem, the olfactory nerve attaches directly to the forebrain, in particular the olfactory bulb located on the frontal lobe, just above the nose (Crossman & Neary, 2010). Olfactory information further travels to the limbic system, which is responsible for our emotions, behaviour and memories (SPD Australia, 2010). The use of fragrances can therefore be powerful in altering moods, emotions and alertness levels."><table><tr><td>LEARNING THROUGH TASTE - GUSTATORY PROCESSING  AND LEARNING THROUGH SMELL - OLFACTORY PROCESSING</td></tr></table></h3>
+		The Olfactory sense processes smell. When we notice a smell, information is taken to the amygdala in our brain through the olfactory nerve. Unlike the other sensory systems that transport nerve impulses through the spinal cord and the brain stem, the olfactory nerve attaches directly to the forebrain, in particular the olfactory bulb located on the frontal lobe, just above the nose. Olfactory information travels to the limbic system, which is responsible for our emotions, behaviour and memories.  Fragrances can therefore be powerful in altering moods, emotions and alertness levels."><table><tr><td>LEARNING THROUGH TASTE - GUSTATORY PROCESSING  AND LEARNING THROUGH SMELL - OLFACTORY PROCESSING</td></tr></table></h3>
 		<div>
 				<div id="redzone"><i>OVER responsive state- <br>over-registering sensory information, responding with sensitivity, avoidance, defensiveness, fight/flight/fright or freeze</i></div>
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>117</td><td><input type="radio" name="5red_check1" value='1'/></td><td><input type="radio" name="5red_check1" value='0.66'/></td><td><input type="radio" name="5red_check1" value='0.33'/></td><td><input type="radio" name="5red_check1" value='0'/></td><td>be fussy about food: texture and/or taste (e.g. may eat only one type of food). This student may eat a limited variety (e.g. only white foods or only crunchy foods).</td></tr>
 					
@@ -859,7 +844,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>123</td><td><input type="radio" name="5grey_check1" value='1'/></td><td><input type="radio" name="5grey_check1" value='0.66'/></td><td><input type="radio" name="5grey_check1" value='0.33'/></td><td><input type="radio" name="5grey_check1" value='0'/></td><td>not notice food left in mouth.</td></tr>
 					
@@ -877,7 +862,7 @@ floor or head bang). This is very complex and serious and could be for several r
 				<br>This student may:<br>
 				
 				<table>
-					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Always (10 + times per week)">A</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
+					<tr align="center"><td>&nbsp;</td><td style="border: 2px solid #000000;" align="center" title="Very Frequently (10 + times per week)">VF</td><td style="border: 2px solid #000000;" title="Frequently (5-10 times per week)">F</td><td style="border: 2px solid #000000;" title="Sometimes (1- 5 times per week)">S</td><td style="border: 2px solid #000000;" title="Never (0 times per week)">N</td><td></td></tr>
 					
 					<tr><td>128</td><td><input type="radio" name="5white_check1" value='1'/></td><td><input type="radio" name="5white_check1" value='0.66'/></td><td><input type="radio" name="5white_check1" value='0.33'/></td><td><input type="radio" name="5white_check1" value='0'/></td><td>stuff mouth with food (this could be for better oral-motor control through enhanced sensory feedback -it's easier to control a large piece of food rather than a tiny crumb in your mouth).</td></tr>
 					
@@ -919,18 +904,16 @@ floor or head bang). This is very complex and serious and could be for several r
 		<div class="pagebreak"> </div>
 		<table style="text-align: center; border-spacing: 0px 20px; padding: 0px">
 			<tr>
-				<td style="padding: 0px">PROPRIOCEPTION – position and awareness of the body  <br><div id="chart2" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div><br><div id="desc2" style="width:480px; height:32px;	margin-left: auto; margin-right: auto;"></div></td>
-				<td style="padding: 0px">TACTILE PROCESSING - touch<br><div id="chart3" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div><br><div id="desc3" style="width:480px; height:32px;	margin-left: auto; margin-right: auto;"></div>
-				<div class="pagebreak"> </div><br></td>
+				<td style="padding: 0px">PROPRIOCEPTION – position and awareness of the body  <br><div id="chart2" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div></td>
+				<td style="padding: 0px">TACTILE PROCESSING - touch<br><div id="chart3" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div></td>
 			</tr>
 			<tr>
-				<td style="padding: 0px">VESTIBULAR PROCESSING - movement<br><div id="chart4" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div><br><div id="desc4" style="width:480px; height:32px;	margin-left: auto; margin-right: auto;"></div></td>
-				<td style="padding: 0px">AUDITORY PROCESSING - sound<br><div id="chart5" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div><br><div id="desc5" style="width:480px; height:32px;	margin-left: auto; margin-right: auto;"></div>
-				<div class="pagebreak"> </div><br></td>
+				<td style="padding: 0px">VESTIBULAR PROCESSING - movement<br><div id="chart4" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div></td>
+				<td style="padding: 0px">AUDITORY PROCESSING - sound<br><div id="chart5" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div></td>
 			</tr>
 			<tr>
-				<td style="padding: 0px">VISUAL PROCESSING - visual information<br><div id="chart6" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div><br><div id="desc6" style="width:480px; height:32px;	margin-left: auto; margin-right: auto;"></div></td>
-				<td style="padding: 0px">GUSTATORY and OLFACTORY PROCESSING - taste and smell<br><div id="chart7" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div><br><div id="desc7" style="width:480px; height:32px;	margin-left: auto; margin-right: auto;"></div>
+				<td style="padding: 0px">VISUAL PROCESSING - visual information<br><div id="chart6" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div></td>
+				<td style="padding: 0px">GUSTATORY and OLFACTORY PROCESSING - taste and smell<br><div id="chart7" style="width:480px; height:320px;	margin-left: auto; margin-right: auto;"></div>
 				<div class="pagebreak"> </div><br></td>
 			</tr>
 			<!--tr>
@@ -941,54 +924,13 @@ floor or head bang). This is very complex and serious and could be for several r
 			</tr-->
 		</table>	
 		
-		<br><hr>
-		<div style="text-align: center"><h1>Overall result</h1></div>
-		<br>
-		<table class="w3-table-all w3-hoverable">
-			<tr>
-				<th style="text-align: center">Sensory System</th><th>OVER responsive state</th><th>UNDER responsive state</th><th>Seeking the zone</th>
-			</tr>	
-			<tr>
-				<td>PROPRIOCEPTION – position and awareness of the body</td>
-				<td><div id="0s0"></div></td>
-				<td><div id="0s1"></div></td>
-				<td><div id="0s2"></div></td>
-			</tr>
-			<tr>
-				<td>TACTILE PROCESSING - touch</td>
-				<td><div id="1s0"></div></td>
-				<td><div id="1s1"></div></td>
-				<td><div id="1s2"></div></td>
-			</tr>
-			<tr>
-				<td>VESTIBULAR PROCESSING - movement</td>
-				<td><div id="2s0"></div></td>
-				<td><div id="2s1"></div></td>
-				<td><div id="2s2"></div></td>				
-			</tr>
-			<tr>
-				<td>AUDITORY PROCESSING - sound</td>
-				<td><div id="3s0"></div></td>
-				<td><div id="3s1"></div></td>
-				<td><div id="3s2"></div></td>
-			</tr>
-			<tr>
-				<td>VISUAL PROCESSING - visual information</td>
-				<td><div id="4s0"></div></td>
-				<td><div id="4s1"></div></td>
-				<td><div id="4s2"></div></td>				
-			</tr>
-			<tr>
-				<td>GUSTATORY and OLFACTORY PROCESSING - taste and smell</td>
-				<td><div id="5s0"></div></td>
-				<td><div id="5s1"></div></td>
-				<td><div id="5s2"></div></td>				
-			</tr>
-		</table>
-		
+	
 		<br><br><b>General notes, questions or thoughts for your student’s IEP: <br> &nbsp;<textarea id="notes" cols="80" rows="12"></textarea> </b>
 		<!--div id="logo"><img src="autismcentrallogo.jpg" height="90" width="180"/><img src="logo.jpg" height="80" width="180"/></div-->
+		<h3>Thank you for completing the ITZ Student Response Checklist. These graphs represent the responses selected for your student.
+		Click on each column for the strategy tool for Over-responsive, Under-responsive or Seeking the zone.</h3>
 	</div>
+	
 	<div id="dialog" title="Zones based on state">
 		
 	</div>
@@ -999,6 +941,6 @@ floor or head bang). This is very complex and serious and could be for several r
 	<div id="grey" title="Grey state">
 		These are the strategies to handle the Grey state.
 	</div>
-	v2.0.2
+	v2.0.3
   </body>
 </html>
