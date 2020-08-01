@@ -55,6 +55,13 @@
 		fontFamily: 'Tahoma';
 		fontSize: '8pt';
 	}
+	.ui-dialog .ui-dialog-content {
+		background: none repeat scroll 0 0 transparent;
+		border: 0 none;
+		overflow: auto;
+		position: relative;
+		padding: 0 !important;
+	}
 	#header {
 		background: url("topwave.jpg") no-repeat scroll 0px 0px;
 		height: 130px;
@@ -146,16 +153,14 @@
 		text-align:center;
 	}
 	#orangenote{
-		width : 100px;
-		font-size: 10px; 
 		display: block;
-		margin-left: 0px;
-		margin-right: 0px;
-		background-color: #FC7E04;
+		margin-left: 2px;
+		margin-right: 2px;
+		background-color: #AAFFFF;//#FC7E04;
 		color: #000;
 		border: 1px solid #111111;
-		border-radius:4px;
-		text-align:center;
+		border-radius:6px;
+		text-align:left;
 	}
 	#bluenote{
 		display: block;
@@ -220,10 +225,11 @@
 		
 		var dialogOptions={
 			maxWidth:900,
-            maxHeight: 90,
+            maxHeight: 20,
             width: 900,
-            height: 90,
+            height: 20,
 			autoOpen: false,
+			modal: true,
 			show: {
 				effect: "blind",
 				duration: 1000
@@ -358,9 +364,9 @@
 			divText='#chart'+i;
 			$(divText).bind('jqplotDataClick', 
 				function (ev, seriesIndex, pointIndex, data) {
-					if(pointIndex == 0) window.open("Red.Zone.pdf","red")//$("#red").dialog("open");
-					if(pointIndex == 1) window.open("Grey.Zone.pdf","grey")//$("#grey").dialog("open");
-					if(pointIndex == 2) window.open("White.Zone.pdf","white")//$("#white").dialog("open");
+					//if(pointIndex == 0) window.open("Red.Zone.pdf","red")//$("#red").dialog("open");
+					//if(pointIndex == 1) window.open("Grey.Zone.pdf","grey")//$("#grey").dialog("open");
+					//if(pointIndex == 2) window.open("White.Zone.pdf","white")//$("#white").dialog("open");
 				}
 			);
 		}
@@ -897,7 +903,14 @@ floor or head bang). This is very complex and serious and could be for several r
 		</div>	
     </div>
 	<br><b>Overall Notes <br>&nbsp;<textarea id="notes" cols="80" rows="10"></textarea> </b><br><br>
-	
+	<div id="orangenote">
+	Please Click on Evaluate to see graphs of the items you have selected for each sensory system.<br>
+
+	Click on Print and navigate to PRINT TO PDF or SAVE AS PDF in your print menu to save this checklist on your device.<br>
+
+	Refer to the video tutorial "Sensory Lens and ITZ checklist" and "ITZ Strategy Toolkit" for more information.
+	</div>
+	<br>
 		<div id="buttonPanel">
 		<input type="button" id="evaluate" value="Evaluate" style="font-size: 20px"/>	
 		<input type="button" id="print" value="Print" style="font-size: 20px"/>
@@ -930,7 +943,7 @@ floor or head bang). This is very complex and serious and could be for several r
 		<br><br><b>General notes, questions or thoughts for your student’s IEP: <br> &nbsp;<textarea id="notes" cols="80" rows="12"></textarea> </b>
 		<!--div id="logo"><img src="autismcentrallogo.jpg" height="90" width="180"/><img src="logo.jpg" height="80" width="180"/></div-->
 		<h3>Thank you for completing the ITZ Student Response Checklist. These graphs represent the responses selected for your student.
-		Click on each column for the strategy tool for Over-responsive, Under-responsive or Seeking the zone.</h3>
+		Refer to the ITZ Strategy Toolkit for information and regulatory tools to support your students with complex needs who may be presenting as Over-responsive, Under-responsive or Seeking the zone. </h3>
 		</form>
 	</div>
 	
